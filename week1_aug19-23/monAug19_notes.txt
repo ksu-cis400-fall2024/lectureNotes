@@ -1,0 +1,269 @@
+CIS 400: Object-oriented design, implementation, and testing
+
+Julie Thornton
+
+
+-----------------------------------------------------------
+
+What will we learn? 
+    Creating and maintaining a large software project
+
+1) Object-oriented development principles
+2) Desktop development using WPF, data binding, and custom events 
+3) Web development using ASP.NET, web forms, and LINQ
+
+Throughout course: writing unit tests, creating UML diagrams
+
+
+
+
+
+--> big project: developing menu, point of sale, website for 
+    "Sub Hero" (customizable sandwiches - 
+        kinda sorta like Subway)
+
+    Part 1: develop menu using object-oriented design principles
+    Part 2: write point of sale WPF application for restaurant
+    Part 3: create website for restaurant using ASP.NET
+
+
+
+-----------------------------------------------------------
+
+Course structure - hybrid.
+
+- Module of work each week (posted each Friday):
+    - reading
+    - maybe, a quiz or 2 (not for points, but recommended!)
+    - 2 video tutorials (will start next week - due Mon/Tues)
+    - new milestone for the semester-long project (due Fri)
+
+    - this week is a little different
+
+
+
+
+What will we do during class time?
+    Mondays: lecture/recitation over current material
+
+    Wednesdays: (whatever is left), talk about current milestone,
+        get help if needed
+
+    Fridays: help time
+
+
+
+
+----------------------------------------------------------
+
+Software needed.
+
+- Visual Studio 2022 (disable IntelliCode) and Visio 
+    (can use another UML tool)
+
+
+- How to get free versions of both?
+
+
+- Mac users
+
+
+
+
+- Lab machines
+
+
+
+
+----------------------------------------------------------
+
+Graded work.
+
+Midterm exams (2):      20%
+Final exam:             15%
+Milestones (about 12):  50%
+Tutorials:              15%
+
+
+Grading scale: 90/80/70/60
+
+
+Borderline grades.
+
+
+
+
+
+
+
+-----------------------------------------------------------
+
+Class policies.
+
+- Late work
+    milestones are due each Friday
+    late milestone lose 10% each day they are late 
+        bottom threshold of 40% 
+    all previous work turned in by the Friday after an exam
+
+    same for tutorials (Mon/Tues)
+
+- Dropped exam (will replace lowest midterm with grade on final,
+    if it helps your grade)
+    
+    2 midterms 
+    1 final
+
+
+
+- Incomplete
+
+
+
+- Collaboration
+    tutorials: if you want?
+    milestones: should be your own work
+
+
+- Getting help
+
+    --> Helping hand extra credit
+
+-----------------------------------------------------------
+
+Course materials.
+
+- Canvas (see syllabus and modules)
+
+
+- Online textbook
+
+
+
+
+--> See any typos? Bug bounty.
+
+
+
+
+
+
+------------------------------------------------------------
+
+THIS week:
+    - Milestone 0 due Fri (finish reading / quiz beforehand!)
+        - practice milestone process (git, create release)
+        - we will work on milestone together during Wednesday's class
+        - PLUS, post on Ed Discussion (can do this now)
+
+
+
+Milestone 0.
+
+------------------------------------------------------------
+
+Experience with git? Command line? Branches? Merging? 
+Multiple "local" repos?
+
+
+-------------------------------------------------------------
+
+C# review.
+
+
+
+Write the class Point that represents (x, y) coordinates
+
+- Fields for the x and y coordinates that are only visible 
+    inside the class itself
+
+- A constructor that takes values for both fields and 
+    initializes them
+
+- The method Midpoint, which takes a second Point and 
+    returns the midpoint between this point and the parameter
+    (2,4) (4,6)
+
+
+
+////////////
+
+Create Point (2, 4) called p1
+ 
+
+Create Point (3, 6) called p2
+
+
+
+
+--> where are these points in memory? 
+
+
+--> what is the difference between the stack and heap?
+
+
+
+
+--> can we create a "default" point?
+
+--> difference between field default value and 
+    local variable default value
+
+    int x;
+    Console.WriteLine(x); //compiler error
+
+
+//////////
+
+If we do:
+
+Console.WriteLine(p1);
+ 
+
+What prints? 
+
+
+//////////
+
+Get the midpoint between p1 and p2 by calling your Midpoint method. 
+Store the result in a Point called p3.
+
+
+
+//////////
+
+Consider the following Person class:
+
+public class Person {
+    public string Name { get; set; }
+    public int Age { get; set; }
+}
+ 
+
+Create two Person objects – pers1 and pers2. 
+    pers1: John Doe, age 40
+    pers2: Maria Smith, age 20.
+
+
+
+///////
+
+If we do:
+
+pers1 = pers2;
+pers1.Age++;
+Console.WriteLine(pers1.Age);
+Console.WriteLine(pers2.Age);
+
+What prints?
+
+////////
+
+Create a List called people that can hold Person objects. 
+Add pers1 and pers2 to the list
+
+
+///////
+
+Assume your list has been filled with additional values. 
+Print name of each person whose age is at least 18.
