@@ -28,6 +28,8 @@ Throughout course: writing unit tests, creating UML diagrams
 
 
 
+--> see the project from last semester
+
 -----------------------------------------------------------
 
 Course structure - hybrid.
@@ -153,7 +155,6 @@ Course materials.
 THIS week:
     - Milestone 0 due Fri (finish reading / quiz beforehand!)
         - practice milestone process (git, create release)
-        - we will work on milestone together during Wednesday's class
         - PLUS, post on Ed Discussion (can do this now)
 
 
@@ -186,6 +187,8 @@ Write the class Point that represents (x, y) coordinates
 
 
 
+
+
 ////////////
 
 Create Point (2, 4) called p1
@@ -210,7 +213,7 @@ Create Point (3, 6) called p2
     local variable default value
 
     int x;
-    Console.WriteLine(x); //compiler error
+    Console.WriteLine(x); //what happens?
 
 
 //////////
@@ -267,3 +270,16 @@ Add pers1 and pers2 to the list
 
 Assume your list has been filled with additional values. 
 Print name of each person whose age is at least 18.
+
+
+
+////////
+
+Wednesday: 
+    - a little more review (C# projects and solution, .NET versions)
+    - using git from the command line
+    - branches in git
+
+--> will discuss Milestone 0
+
+--> you will have time to do Milestone 0 in lab on Wednesday/Friday
