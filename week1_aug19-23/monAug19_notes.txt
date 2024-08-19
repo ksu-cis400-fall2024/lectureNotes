@@ -183,7 +183,7 @@ Write the class Point that represents (x, y) coordinates
 
 - The method Midpoint, which takes a second Point and 
     returns the midpoint between this point and the parameter
-    (2,4) (4,6) ==> (3, 5)
+    (2,4) (4,6) => (3, 5)
 
 namespace CIS400 {
     public class Point {
@@ -196,24 +196,22 @@ namespace CIS400 {
         }
 
         public Point Midpoint(Point other) {
+            int newX = (_x + other._x) / 2;
+            int newY = (_y + other._y) / 2;
 
-            return new Point((_x + other._x) / 2, (_y + other._y) / 2);
+            return new Point(newX, newY);
         }
+
     }
 }
 
-//make the point (2,3)
-Point coord = new Point(2,3);
+//make Point (2,3)
+Point p = new Point(2,3);
 
-Point coord2 = new Point(4,7);
+Point p2 = new Point(4,7);
 
-Point coord3 = new Point(0,0);
-
-coord3 = coord.Midpoint(coord2);
-
-
-
-
+Point p3 = new Point(0,0);
+p3 = p.Midpoint(p2);
 
 
 
@@ -221,10 +219,9 @@ coord3 = coord.Midpoint(coord2);
 
 ////////////
 
-Create Point (2, 4) called p1
- 
+<--- stopped here on Monday, will continue on Wednesday
 
-Create Point (3, 6) called p2
+////////////
 
 
 
