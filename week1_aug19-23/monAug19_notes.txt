@@ -19,8 +19,7 @@ Throughout course: writing unit tests, creating UML diagrams
 
 
 --> big project: developing menu, point of sale, website for 
-    "Sub Hero" (customizable sandwiches - 
-        kinda sorta like Subway)
+    "Sub Hero" (customizable sandwiches - kinda sorta like Subway)
 
     Part 1: develop menu using object-oriented design principles
     Part 2: write point of sale WPF application for restaurant
@@ -109,6 +108,7 @@ Class policies.
     all previous work turned in by the Friday after an exam
 
     same for tutorials (Mon/Tues)
+    
 
 - Dropped exam (will replace lowest midterm with grade on final,
     if it helps your grade)
