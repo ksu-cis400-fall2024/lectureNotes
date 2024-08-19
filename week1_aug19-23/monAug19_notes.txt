@@ -128,7 +128,7 @@ Class policies.
 
 
 - Getting help
-
+    --> Ed Discussion
     --> Helping hand extra credit
 
 -----------------------------------------------------------
@@ -183,7 +183,37 @@ Write the class Point that represents (x, y) coordinates
 
 - The method Midpoint, which takes a second Point and 
     returns the midpoint between this point and the parameter
-    (2,4) (4,6)
+    (2,4) (4,6) ==> (3, 5)
+
+namespace CIS400 {
+    public class Point {
+        private int _x;
+        private int _y;
+
+        public Point(int x, int y) {
+            _x = x;
+            _y = y;
+        }
+
+        public Point Midpoint(Point other) {
+
+            return new Point((_x + other._x) / 2, (_y + other._y) / 2);
+        }
+    }
+}
+
+//make the point (2,3)
+Point coord = new Point(2,3);
+
+Point coord2 = new Point(4,7);
+
+Point coord3 = new Point(0,0);
+
+coord3 = coord.Midpoint(coord2);
+
+
+
+
 
 
 
