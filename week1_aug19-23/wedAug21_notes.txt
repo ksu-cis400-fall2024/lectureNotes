@@ -2,7 +2,7 @@
     --> will discuss today
     --> can get help today and Friday in class
 
-- The week 2 module will be available on Friday, August 23
+- The week 2 module will be automatically available on Friday, August 23
     --> two tutorials (due next Mon and Tues)
     --> Milestone 1 (due next Fri)
 
@@ -31,6 +31,8 @@ Create two Person objects – pers1 and pers2.
 
 
 
+(Different ways to create / set name and age?)
+
 
 What if we do:
     Console.WriteLine(pers1);
@@ -46,18 +48,6 @@ Console.WriteLine(pers1.Age);
 Console.WriteLine(pers2.Age);
 
 What prints?
-
-////////
-
-Create a List called people that can hold Person objects. 
-Add pers1 and pers2 to the list
-
-
-///////
-
-Assume your list has been filled with additional values. 
-Print name of each person whose age is at least 18.
-
 
 
 ////////////////////////
@@ -103,6 +93,11 @@ git pull origin <branchName>)
 (git pull only pulls from the current branch. Will need to separately pull
 or checkout other branches, if needed.)
 
+To get ALL remote branches:
+
+    git fetch origin
+
+Then you can checkout the desired branch and pull in from the remote
 
 ///////////////
 
