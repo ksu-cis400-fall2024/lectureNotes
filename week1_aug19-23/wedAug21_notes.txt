@@ -20,7 +20,7 @@ Today:
 Consider the following Person class:
 
 public class Person {
-    public string Name { get; set; }
+    public string Name { get; private set; }
     public int Age { get; set; }
 }
  
@@ -28,6 +28,9 @@ public class Person {
 Create two Person objects – pers1 and pers2. 
     pers1: John Doe, age 40
     pers2: Maria Smith, age 20.
+
+Person pers1 = new Person() {Name = "John Doe", Age = 40};
+Person pers2 = new Person() {Name = "Maria Smith", Age = 20};
 
 
 
@@ -42,7 +45,7 @@ What if we do:
 
 If we do:
 
-pers1 = pers2;
+pers1 = pers2; //no reference to John anymore, will get garbage collected
 pers1.Age++;
 Console.WriteLine(pers1.Age);
 Console.WriteLine(pers2.Age);
