@@ -71,6 +71,10 @@ Overall idea of git.
 --> if there are changes in a remote branch, you must PULL them into 
     the corresponding local branch
 
+////////////////
+
+Example: see branching of lectureNotes repo
+
 
 ////////////////
 
