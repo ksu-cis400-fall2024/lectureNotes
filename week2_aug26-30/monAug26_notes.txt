@@ -1,0 +1,110 @@
+Encapsulation tutorial: due tonight
+Properties tutorial: due Tuesday
+Milestone 1: due Friday
+
+----------------------------
+
+Properties vs fields.
+
+
+public int Number;
+
+
+//what kind of property is this?
+public int Number {get; set;}
+
+
+--> make an equivalent property without the above shortcut
+
+
+--> visibility -- how to make Number only modifiable inside the class?
+
+
+--> default values -- how to make Number start at 10?
+
+
+--> how to set a default value if there is a backing field?
+
+
+
+--> lambda syntax (expression-bodied member) =>
+
+private int _number = 10;
+public int Number
+{
+    get => _number;
+    set => _number = value;
+}
+
+public string GetString() => First + " " + Last;
+
+
+See LabRoom class. Turn fields into properties.
+--> enforce room size 10-30
+--> make Windows value get-only (except on creation)
+    1) using a constructor
+    2) using init
+
+----------------------------
+
+Common mistake with properties:
+
+public int Property
+{
+    get
+    {
+        return Property;
+    }
+    set
+    {
+        Property = value;
+    }
+}
+
+int val = obj.Property;
+
+
+
+----------------------------
+
+struct vs class
+
+differences in memory
+
+
+when to use each
+
+
+--> how to make PointStruct immutable?
+
+----------------------------
+
+static vs non-static: associated with a class and not a particular object
+
+when to use each?
+
+what would a static field or property mean?
+
+--> what if we wanted a consistent drinks policy (yes/no) across all
+    lab rooms?
+
+--> static constructor
+
+---------------------------------------------
+
+Encapsulation - what is this?
+
+
+Want to keep track of scores and majors for students.
+    --> see current organization
+    --> why not great?
+    --> how to improve?
+
+
+----------------------------
+
+
+Other vocab:
+
+Information hiding
+State
