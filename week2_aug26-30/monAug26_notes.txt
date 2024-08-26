@@ -1,42 +1,29 @@
 Encapsulation tutorial: due tonight
 Properties tutorial: due Tuesday
-Milestone 1: due Friday
+Milestone 1: due Friday (you might notice the design is ugly...)
+
+--> git should be installed on the lab machines now
 
 ----------------------------
 
 Properties vs fields.
 
 
-public int Number;
 
+--> autoproperty
 
-//what kind of property is this?
-public int Number {get; set;}
+--> visibility
 
+--> default values
 
---> make an equivalent property without the above shortcut
+--> enforcing bounds
 
-
---> visibility -- how to make Number only modifiable inside the class?
-
-
---> default values -- how to make Number start at 10?
-
-
---> how to set a default value if there is a backing field?
+--> lambda notation
 
 
 
---> lambda syntax (expression-bodied member) =>
 
-private int _number = 10;
-public int Number
-{
-    get => _number;
-    set => _number = value;
-}
-
-public string GetString() => First + " " + Last;
+---------------------------
 
 
 See LabRoom class. Turn fields into properties.
@@ -66,29 +53,42 @@ int val = obj.Property;
 
 
 ----------------------------
-
-struct vs class
-
-differences in memory
+see PointStruct, try to use.
 
 
-when to use each
+
+--> differences between class and struct?
 
 
 --> how to make PointStruct immutable?
 
+
+--> why should structs usually be immutable?
+
+
+
 ----------------------------
 
-static vs non-static: associated with a class and not a particular object
+static vs non-static.
 
-when to use each?
+    --> when can/should a field/method/property be static?
+    --> when is a field/method/property NOT allowed to be static?
+    --> when should a class be static?
 
-what would a static field or property mean?
+--> can a static class have a constructor?
+
+--> can a non-static class have a static constructor?
+
 
 --> what if we wanted a consistent drinks policy (yes/no) across all
     lab rooms?
 
---> static constructor
+
+--> how could we initialize the drink policy for everyone?
+
+
+--> how could we modify the drinks policy for everyone?
+
 
 ---------------------------------------------
 

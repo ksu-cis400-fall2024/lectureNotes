@@ -16,5 +16,7 @@ namespace Encapsulation
             X = x;
             Y = y;
         }
+
+        //make a Print method
     }
 }
