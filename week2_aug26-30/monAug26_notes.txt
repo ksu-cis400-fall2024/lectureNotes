@@ -2,6 +2,8 @@ Encapsulation tutorial: due tonight
 Properties tutorial: due Tuesday
 Milestone 1: due Friday (you might notice the design is ugly...)
 
+--> make sure your project builds (but it won't run)
+
 --> git should be installed on the lab machines now
 
 ----------------------------
@@ -16,23 +18,10 @@ Properties vs fields.
 
 --> default values
 
---> enforcing bounds
-
 --> lambda notation
 
 
-
-
 ---------------------------
-
-
-See LabRoom class. Turn fields into properties.
---> enforce room size 10-30
---> make Windows value get-only (except on creation)
-    1) using a constructor
-    2) using init
-
-----------------------------
 
 Common mistake with properties:
 
@@ -51,8 +40,18 @@ public int Property
 int val = obj.Property;
 
 
-
 ----------------------------
+
+
+See LabRoom class. Turn fields into properties.
+--> enforce room size 10-30
+--> make Windows value get-only (except on creation)
+    1) using a constructor
+    2) using init
+
+
+------------------------------
+
 see PointStruct, try to use.
 
 
