@@ -8,9 +8,9 @@ Milestone 1: due Friday (you might notice the design is ugly...)
 
 --> how to check what you submitted?
 
---> what if you need to re-release?
+--> what if you need to re-release? v0.0.1
 
---> "you are behind branch main..."
+--> "you are ahead of branch main..."
 
 --> git should be installed on the lab machines now
 
@@ -18,16 +18,66 @@ Milestone 1: due Friday (you might notice the design is ugly...)
 
 Properties vs fields.
 
+public int Num;
+
+public int Num {get; set;}
+
+
+have more control over visibility (esp when setting)
 
 
 --> autoproperty
+
+public int Num {get; set;}
+
+is equivalent to:
+
+private int _num = 10;
+public int Num
+{
+    get
+    {
+        return _num;
+    }
+    set
+    {
+        _num = value;
+    }
+}
 
 --> visibility
 
 --> default values
 
---> lambda notation
+public int Num {get; set;} = 10;
 
+
+
+or initialize in the constructor:
+
+public WhateverClass()
+{
+    Num = 10;
+}
+
+
+--> lambda notation =>
+
+private int _num = 10;
+public int Num
+{
+    get => _num;
+    set => _num = value;
+}
+
+
+obj.Num = 10;
+
+
+public string GetString() => First + " " + Last;
+ 
+
+public string Name => "Club Sub"; 
 
 ---------------------------
 
@@ -45,7 +95,7 @@ public int Property
     }
 }
 
-int val = obj.Property;
+obj.Property;
 
 
 ----------------------------
@@ -73,6 +123,11 @@ see PointStruct, try to use.
 --> why should structs usually be immutable?
 
 
+
+----------------------------
+
+<-- stopped here for 2:30 section, did a little with
+    static (stopped before static constructors) in 1:30 section
 
 ----------------------------
 

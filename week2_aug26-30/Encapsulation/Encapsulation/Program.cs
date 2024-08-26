@@ -8,7 +8,24 @@ public class Program
 
     public static void Main(string[] args)
     {
+        //LabRoom r = new() { Windows = false };
+
+        //NO!!! can't change now
+        //r.Windows = true;
+
+        LabRoom r = new(false);
+
         //create PointStruct for (3,4)
+
+        PointStruct point1 = new(3, 4);
+        PointStruct point2 = point1;
+
+        //doesn't work - PointStruct is now immutable
+        //point2.X = 10;
+
+        point1.Print();
+        point2.Print();
+
 
         //make another one, set it equal to the first
 

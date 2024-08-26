@@ -8,8 +8,25 @@ namespace Encapsulation
 {
     public class LabRoom
     {
-        public int Computers = 20;
+        //only allow 10-30 computers
+        private uint _computers = 20;
+        public uint Computers
+        {
+            get => _computers;
+            set
+            {
+                if (value >= 10 && value <= 30)
+                {
+                    _computers = value;
+                }
+            }
+        }
 
-        public bool Windows = true;
+        public bool Windows { get; } = true;
+
+        public LabRoom(bool isWindows)
+        {
+            Windows = isWindows;
+        }
     }
 }

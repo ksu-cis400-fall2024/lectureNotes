@@ -8,8 +8,8 @@ namespace Encapsulation
 {
     public struct PointStruct
     {
-        public int X;
-        public int Y;
+        public int X { get;  }
+        public int Y { get; }
 
         public PointStruct(int x, int y)
         {
@@ -18,5 +18,9 @@ namespace Encapsulation
         }
 
         //make a Print method
+        public void Print()
+        {
+            Console.WriteLine($"({X}, {Y})");
+        }
     }
 }
