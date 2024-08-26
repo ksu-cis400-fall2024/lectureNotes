@@ -4,6 +4,14 @@ Milestone 1: due Friday (you might notice the design is ugly...)
 
 --> make sure your project builds (but it won't run)
 
+--> save your files!
+
+--> how to check what you submitted?
+
+--> what if you need to re-release?
+
+--> "you are behind branch main..."
+
 --> git should be installed on the lab machines now
 
 ----------------------------
