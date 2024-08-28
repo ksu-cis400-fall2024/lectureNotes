@@ -22,23 +22,25 @@ VeggieSandwich class:
 static vs non-static.
 
     --> when can/should a field/method/property be static?
+
     --> when is a field/method/property NOT allowed to be static?
+
     --> when should a class be static?
+
+
+--> look at drinks policy for lab room
+
+
+--> what if we wanted to initialize the policy elsewhere (i.e., constructor)
+
+
+
 
 --> can a static class have a constructor?
 
 --> can a non-static class have a static constructor?
 
 
-
---> what if we wanted a consistent drinks policy (yes/no) across all
-    lab rooms?
-
-
---> how could we initialize the drink policy for everyone?
-
-
---> how could we modify the drinks policy for everyone?
 
 ---------------------------------------------
 
@@ -53,14 +55,6 @@ What class to add? What fields/properties?
 Where should methods go? Could average be a property?
 
 ----------------------------
-
-
-Other vocab:
-
-Information hiding
-State
-
-----------------------------------
 
 UML - Unified Modeling Language
 

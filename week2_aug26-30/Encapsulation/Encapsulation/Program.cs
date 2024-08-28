@@ -8,6 +8,9 @@ public class Program
 
     public static void Main(string[] args)
     {
+        //from Monday:
+
+        /*
         //LabRoom r = new() { Windows = false };
 
         //NO!!! can't change now
@@ -25,6 +28,13 @@ public class Program
 
         point1.Print();
         point2.Print();
+        */
+
+        //Wednesday:
+
+        LabRoom room = new(false);
+
+        //how to change drinks policy?
 
 
         //make another one, set it equal to the first

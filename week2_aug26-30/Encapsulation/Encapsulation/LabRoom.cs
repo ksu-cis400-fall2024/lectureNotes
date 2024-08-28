@@ -24,6 +24,8 @@ namespace Encapsulation
 
         public bool Windows { get; } = true;
 
+        public static bool DrinksAllowed { get; set; } = false;
+
         public LabRoom(bool isWindows)
         {
             Windows = isWindows;
