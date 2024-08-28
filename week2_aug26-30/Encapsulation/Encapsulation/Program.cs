@@ -32,16 +32,12 @@ public class Program
 
         //Wednesday:
 
-        LabRoom room = new(false);
+        LabRoom room1 = new(false);
+        LabRoom room2 = new(true);
 
         //how to change drinks policy?
 
 
-        //make another one, set it equal to the first
-
-        //change a value, print
-
-        //what happens if we pass to a method?
 
 
 
