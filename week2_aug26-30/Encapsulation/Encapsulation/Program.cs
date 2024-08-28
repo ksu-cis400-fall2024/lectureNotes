@@ -37,7 +37,7 @@ public class Program
 
         //how to change drinks policy?
 
-
+        LabRoom.DrinksAllowed = true;
 
 
 
@@ -51,20 +51,20 @@ public class Program
         //Bob, CS, 80/70/92
         //Jill, CMPEN, 95/68/88
 
-        //write get average method
+        //how to get average?
 
         //change major of Bob to MATH
 
         */
-    }
 
-    public static int GetAverage(string name)
-    {
-        throw new NotImplementedException();
-    }
+        _names.Add("Bob");
+        _majors.Add("Bob", "CS");
+        _scores.Add("bob", new List<int>());
+        _scores["Bob"].Add(80);
 
-    public static void ChangeMajor(string name, string newMajor)
-    {
-        throw new NotImplementedException();
+        Student s = new("Bob", "CS");
+        s.AddScore(80);
+
+        double val = s.Average;
     }
 }

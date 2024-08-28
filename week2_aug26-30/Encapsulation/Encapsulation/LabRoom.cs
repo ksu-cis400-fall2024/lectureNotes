@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,11 +25,21 @@ namespace Encapsulation
 
         public bool Windows { get; } = true;
 
-        public static bool DrinksAllowed { get; set; } = false;
+        public static bool DrinksAllowed { get; set; }
 
         public LabRoom(bool isWindows)
         {
             Windows = isWindows;
+        }
+
+        static LabRoom()
+        {
+            //initialize all static properties/fields
+
+            DrinksAllowed = false;
+            
+            //NO! can only access static members
+            //Windows = false;
         }
     }
 }

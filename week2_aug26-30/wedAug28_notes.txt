@@ -12,7 +12,7 @@ VeggieSandwich class:
 
 
 --> Week 3 module will be published automatically just after midnight
-    Friday morning (one one tutorial, due Tues)
+    Friday morning (only one tutorial, due Tues)
 
 
 --> no class Mon Sep 2
@@ -53,13 +53,3 @@ Want to keep track of scores and majors for students.
 
 What class to add? What fields/properties? 
 Where should methods go? Could average be a property?
-
-----------------------------
-
-UML - Unified Modeling Language
-
---> why?
-
---> what kinds of diagrams?
-
-Draw UML for new Student class.
