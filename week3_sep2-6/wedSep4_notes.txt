@@ -1,0 +1,153 @@
+Methods tutorial due yesterday
+Milestone 2 due Friday
+
+////////////////////////
+
+What goes in different sections of memory:
+
+- static: ?
+
+
+- stack: ?
+
+
+- heap: ?
+
+
+
+Is static memory limited in size? Does the size change? When?
+
+
+Is stack limited in size? Does the size change? When?
+
+
+Is heap limited in size? Does the size change? When?
+
+
+Memory leaks?
+
+////////////////////////
+
+enums.
+
+public enum SomeName 
+{
+    Value1, Value2, ...
+}
+
+
+
+--> are really ints (0, 1, 2, ...). Can be cast to ints in this way.
+
+
+public enum Candy
+{
+    Reeses,
+    KitKat,
+    Snickers,
+    Butterfinger  
+}
+
+--> declare an enum variable, set to KitKat
+
+
+
+
+--> print it (use an interpolated string)
+
+//My favorite candy is KitKat
+
+
+
+
+--> what if we wanted it to be "Kit Kat"?
+
+
+
+--> how to loop through all enum values?
+
+
+////////////////////////////////
+
+- C# enums and namespace vs folder structure
+
+--> creating an enum
+
+--> creating a new folder
+
+--> moving a file to a folder
+
+--> creating an item in a folder
+
+
+///////////////////////////////
+
+Milestone 2
+
+- add 5 new enums:
+    - size of a menu item
+    - type of bread
+    - flavor of chips (a new menu item)
+    - flavor of soda (a new menu item)
+    - flavor of cookie (a new menu item)
+    (why use enums instead of strings?)
+
+- each sub/wrap/sandwich has a size and a bread choice property now***
+
+- new classes: Chips, FountainDrink, Cookies
+
+- each drink has a size now
+
+
+--> be sure to enforce bounds on Cookies (2-6)
+
+
+/////
+
+Sub/wrap/sandwich size and bread:
+
+--> default size is medium, default bread choice is given in writeup
+--> size/bread restrictions: 
+        hoagies can be any size
+        wraps can only be medium
+        wheat/sourdough can only be small/medium
+--> DO NOT allow size/bread changes that would violate these restrictions
+--> CAN first change bread or size to something else with fewer restrictions,
+    THEN edit
+
+/////
+
+Sub/wrap/sandwich calories.
+
+--> "base" calories for subs/wraps/sandwiches are for a medium with the
+    default bread choice
+    --> find the base calories first, adjusting for non-default ingredients/bread
+    --> THEN, scale your value to get the calories for a different size
+        small = 0.5, large = 1.5
+
+--> "base" price is for a medium with default ingredients
+    --> adjust for non-default ingredients
+    --> scale based on size (small is $3 less, large is $2 more)
+
+    e.g: small TurkeyCranberrySandwich on a hoagie with provolone
+        but no red onion
+
+    base calories = 605
+        add 40 for a hoagie instead of bread (bread = 250, wrap = 220, hoagie = 290)
+        add 80 for provolone
+        subtract 5 for onions
+        = ???
+
+        scale for small = ???
+
+    base price = $8.49
+        add $1 for both cheeses
+        subtract $3 for small
+        = ???
+
+
+
+
+--> be sure to document!
+
+--> reorganize code into folders. Be careful! Might rename namespaces.
