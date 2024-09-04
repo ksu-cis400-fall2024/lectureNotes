@@ -37,8 +37,14 @@ public enum SomeName
 
 
 
---> are really ints (0, 1, 2, ...). Can be cast to ints in this way.
+--> are really ints (0, 1, 2, ...). 
+    Can be cast to ints in this way.
 
+
+--> can be in a standalone file or nested in a class
+
+
+///////////////////
 
 public enum Candy
 {
@@ -100,6 +106,7 @@ Milestone 2
 
 
 --> be sure to enforce bounds on Cookies (2-6)
+    --> error in writeup: Name should be "Cookies"
 
 
 /////
