@@ -113,34 +113,37 @@ Milestone 2
 
 Sub/wrap/sandwich size and bread:
 
---> default size is medium, default bread choice is given in writeup
+--> default size is medium
+--> default bread choice is given in writeup
 --> size/bread restrictions: 
         hoagies can be any size
         wraps can only be medium
         wheat/sourdough can only be small/medium
---> DO NOT allow size/bread changes that would violate these restrictions
---> CAN first change bread or size to something else with fewer restrictions,
+--> DO NOT allow size/bread changes that would violate these
+--> CAN first change bread or size to something else
     THEN edit
 
 /////
 
 Sub/wrap/sandwich calories.
 
---> "base" calories for subs/wraps/sandwiches are for a medium with the
-    default bread choice
-    --> find the base calories first, adjusting for non-default ingredients/bread
-    --> THEN, scale your value to get the calories for a different size
+--> "base" calories are for a medium with default bread
+    --> find the base calories first
+    --> adjust for non-default ingredients/bread
+    --> THEN, scale your value for size
         small = 0.5, large = 1.5
 
 --> "base" price is for a medium with default ingredients
     --> adjust for non-default ingredients
-    --> scale based on size (small is $3 less, large is $2 more)
+    --> scale based on size (small: $3 less, large: $2 more)
 
-    e.g: small TurkeyCranberrySandwich on a hoagie with provolone
-        but no red onion
+    e.g: small TurkeyCranberrySandwich on a hoagie 
+        with provolone
+        no red onion
 
     base calories = 605
-        add 40 for a hoagie instead of bread (bread = 250, wrap = 220, hoagie = 290)
+        add 40 for a hoagie instead of bread 
+            (bread = 250, wrap = 220, hoagie = 290)
         add 80 for provolone
         subtract 5 for onions
         = ???
@@ -157,4 +160,5 @@ Sub/wrap/sandwich calories.
 
 --> be sure to document!
 
---> reorganize code into folders. Be careful! Might rename namespaces.
+--> reorganize code into folders. Be careful! 
+    Might rename namespaces.
