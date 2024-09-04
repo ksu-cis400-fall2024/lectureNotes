@@ -5,23 +5,29 @@ Milestone 2 due Friday
 
 What goes in different sections of memory:
 
-- static: ?
+- static: anything static, program itself, literals
 
 
-- stack: ?
+- stack: anything scoped (method call, inside a loop,
+    inside a conditional)
 
 
-- heap: ?
+- heap: dynamic memory (anytime I use "new" - object or array)
 
 
 
 Is static memory limited in size? Does the size change? When?
-
+    static memory size does not change
 
 Is stack limited in size? Does the size change? When?
-
+    grows when I enter a new scope, like a method call
+    shrinks when I leave a scope
+    limited in size, but doesn't usually come up
 
 Is heap limited in size? Does the size change? When?
+    there are limits, don't usually hit
+    grows when I say "new"
+    shrinks when a space not referenced by stack or heap
 
 
 Memory leaks?
@@ -56,21 +62,27 @@ public enum Candy
 
 --> declare an enum variable, set to KitKat
 
-
+Candy c = Candy.KitKat;
 
 
 --> print it (use an interpolated string)
 
 //My favorite candy is KitKat
 
-
+Console.WriteLine($"My favorite candy is {c}");
 
 
 --> what if we wanted it to be "Kit Kat"?
 
+have to use a conditional
 
 
 --> how to loop through all enum values?
+
+foreach (Candy c in Enum.GetValues<Candy>())
+{
+
+}
 
 
 ////////////////////////////////
@@ -123,12 +135,15 @@ Sub/wrap/sandwich size and bread:
 --> CAN first change bread or size to something else
     THEN edit
 
+currently have a Mediterranean wrap
+    default bread: wrap
+    default size: medium
+
 /////
 
 Sub/wrap/sandwich calories.
 
 --> "base" calories are for a medium with default bread
-    --> find the base calories first
     --> adjust for non-default ingredients/bread
     --> THEN, scale your value for size
         small = 0.5, large = 1.5
@@ -138,6 +153,8 @@ Sub/wrap/sandwich calories.
     --> scale based on size (small: $3 less, large: $2 more)
 
     e.g: small TurkeyCranberrySandwich on a hoagie 
+        (by default, would be medium on wheat) 
+
         with provolone
         no red onion
 
@@ -146,19 +163,24 @@ Sub/wrap/sandwich calories.
             (bread = 250, wrap = 220, hoagie = 290)
         add 80 for provolone
         subtract 5 for onions
-        = ???
+        = 720 (would be for a medium)
 
-        scale for small = ???
+        scale for small = 360
 
     base price = $8.49
         add $1 for both cheeses
         subtract $3 for small
-        = ???
+        = $6.49
 
 
 
 
 --> be sure to document!
+
+summary above class, property, method
+methods should have params/return
+
+Whether this ClubSub contains lettuce
 
 --> reorganize code into folders. Be careful! 
     Might rename namespaces.

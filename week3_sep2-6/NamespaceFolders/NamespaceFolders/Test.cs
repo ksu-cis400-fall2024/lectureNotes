@@ -10,7 +10,9 @@ namespace NamespaceFolders
     {
         public Test()
         {
-            FileToMove f = new FileToMove();
+            //create a FileToMove object
+            //FileToMove f = new();
+            Candy c = Candy.Reeses;
         }
     }
 }
