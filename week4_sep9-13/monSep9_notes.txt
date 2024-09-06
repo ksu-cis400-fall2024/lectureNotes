@@ -1,0 +1,204 @@
+Interfaces tutorial: due today
+Inheritance tutorial: due Tuesday
+
+Milestone 3: due Friday
+
+
+--> make sure your solution builds
+
+///////////////////////
+
+What goes in an interface?
+
+
+What is the purpose?
+
+
+naming convention?
+
+
+//////////////////////
+
+Example: Chicken and Dog
+
+- what if we wanted a list of several chickens and dogs, 
+    and to get the sound of each?
+
+- what do they have in common? how could we refactor?
+
+- how to use?
+
+
+
+--> what does polymorphism mean?
+
+
+
+Dog d = new Dog();
+--> what types could store d?
+
+
+//////////////////////
+
+Implementing an existing interface.
+
+
+
+Implementing multiple interfaces.
+
+
+///////////////////////
+
+(What are we going to do with our menu items?)
+
+//////////////////////
+
+Implicit casting vs explicit casting
+
+double pi = 3.14;
+int val = (int) pi; //implicit or explicit?
+
+
+int num = 3;
+double d = num; //implicit or explicit?
+
+
+going from a more specific type to a less specific type
+    do we need an explict cast?
+
+
+going from a less specific type to a more specific type
+    do we need an explict cast?
+
+
+- examples with Dog/Animal
+
+Dog d = (something);
+IAnimal a = d;                  //OK?
+
+
+IAnimal another = (something);
+Dog d2 = another;               //OK?
+
+
+///////////////////////////////////////////
+
+
+as keyword
+
+IAnimal another = (something);
+Dog d2 = another as Dog; //what will this do?
+
+
+
+is keyword
+
+IAnimal another = (something);
+if (another is Dog d2) {
+    //what can we do here?
+}
+
+////////////////////////
+
+Inheritance 
+
+--> what is the idea? 
+
+
+--> how is this different than interfaces?
+
+
+--> when should we refactor to use inheritance?
+
+
+
+Purpose of an abstract class? 
+
+
+
+Can an abstract class implement an interface?
+
+
+
+What do we have to do when we extend an abstract class?
+    public class Child : AbstractClass 
+
+    -->what does Child inherit?
+
+
+    -->what does it have to do?
+
+
+
+
+What do we have to do when we extend a "regular" class?
+    public class Child : ParentClass
+
+    what does child inherit?
+
+    what does it have to do?
+
+
+
+How do we override a method/property?
+    1) in the parent, say: ???
+    2) in the child, say: ???
+
+
+Do we HAVE to override things?
+
+
+
+Can we implement more than one interface? 
+
+
+
+Can we extend more than one abstract class?
+
+
+
+Can we extend more than one "regular" class?
+
+
+Does an abstract class have to have abstract methods/properties?
+
+
+--> protected
+    visibility: ??
+
+
+
+
+--> how do constructors work with inheritance?
+    
+    Baby extends Parent, which extends Grandparent
+    
+
+   --> when are the different constructors called when we do:
+   Baby e = new Baby();
+
+
+
+
+
+--> different words for the "base" class?
+
+
+
+
+--> different words for the "child" class? 
+
+
+
+////////////////////////
+
+See example: Students
+
+
+////////////////////////
+
+See example: Shirts
+
+- what is there in common?
+
+- how to refactor?
