@@ -5,6 +5,18 @@ Milestone 3: due Friday
 
 
 --> make sure your solution builds
+--> might need to update Visual Studio / get .NET 8.0
+
+
+Paycom presentation about summer internships (with recruiter and recent K-State grad)
+Thursday, September 12 in DUE 1116:
+    1:05-1:15 Recruiter presentation
+    1:20-1:50: Tech talk / Q&A
+    1:50-2:00: K-State grad 
+
+Let me (or Dr. Lang) know if you want to come and are NOT in CIS 415. They may
+need to move to a bigger room.
+
 
 ///////////////////////
 
@@ -63,18 +75,25 @@ int num = 3;
 double d = num; //implicit or explicit?
 
 
+
 going from a more specific type to a less specific type
-    do we need an explict cast?
+
+    lessSpecific = (need a cast?) moreSpecific;
+
+
 
 
 going from a less specific type to a more specific type
-    do we need an explict cast?
+   
+       moreSpecific = (need a cast?) lessSpecific;
+
 
 
 - examples with Dog/Animal
 
 Dog d = (something);
 IAnimal a = d;                  //OK?
+                                //can we get the dog's name now?
 
 
 IAnimal another = (something);
@@ -83,18 +102,17 @@ Dog d2 = another;               //OK?
 
 ///////////////////////////////////////////
 
-
 as keyword
 
-IAnimal another = (something);
-Dog d2 = another as Dog; //what will this do?
+IAnimal animal = (something);
+Dog dog = animal as Dog; //what will this do?
 
 
 
 is keyword
 
 IAnimal another = (something);
-if (another is Dog d2) {
+if (another is Dog d) {
     //what can we do here?
 }
 
@@ -111,6 +129,26 @@ Inheritance
 --> when should we refactor to use inheritance?
 
 
+
+What do we have to do when we extend a "regular" (non-abstract) class?
+    public class Child : ParentClass
+
+    what does child inherit?
+
+    what does it have to do?
+
+
+
+How do we override a method/property?
+    1) in the parent, say: ???
+    2) in the child, say: ???
+
+
+Do we HAVE to override things?
+
+
+
+/////////////////////
 
 Purpose of an abstract class? 
 
@@ -131,22 +169,8 @@ What do we have to do when we extend an abstract class?
 
 
 
-What do we have to do when we extend a "regular" class?
-    public class Child : ParentClass
 
-    what does child inherit?
-
-    what does it have to do?
-
-
-
-How do we override a method/property?
-    1) in the parent, say: ???
-    2) in the child, say: ???
-
-
-Do we HAVE to override things?
-
+///////////////////////////////
 
 
 Can we implement more than one interface? 
@@ -168,6 +192,7 @@ Does an abstract class have to have abstract methods/properties?
 
 
 
+////////////////////////////
 
 --> how do constructors work with inheritance?
     
@@ -180,13 +205,19 @@ Does an abstract class have to have abstract methods/properties?
 
 
 
+--> what must a child constructor do if a parent constructor requires parameters?
 
---> different words for the "base" class?
+
+
+
+--> different words for the "parent" class?
 
 
 
 
 --> different words for the "child" class? 
+
+
 
 
 

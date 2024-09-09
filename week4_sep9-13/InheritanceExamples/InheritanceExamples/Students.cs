@@ -44,7 +44,7 @@ namespace InheritanceExamples
             }
         }
 
-        public virtual void Print()
+        public void Print()
         {
             Console.WriteLine($"Name: {First} {Last}");
             Console.WriteLine($"GPA: {GPA}");
@@ -73,7 +73,7 @@ namespace InheritanceExamples
         }
 
         //Print?
-        public override void Print()
+        public void Print()
         {
             Console.WriteLine($"Name: {First} {Last}");
             Console.WriteLine($"GPA: {GPA}");
