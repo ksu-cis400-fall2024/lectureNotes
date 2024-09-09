@@ -21,12 +21,14 @@ need to move to a bigger room.
 ///////////////////////
 
 What goes in an interface?
+    kind of like a template
+    lists properties and method headers, no implementation
 
 
-What is the purpose?
+What is the purpose? require classes to have certain properties and methods
 
 
-naming convention?
+naming convention? start with an I
 
 
 //////////////////////
@@ -42,12 +44,17 @@ Example: Chicken and Dog
 
 
 
---> what does polymorphism mean?
+--> what does polymorphism mean? many types
 
 
 
 Dog d = new Dog();
 --> what types could store d?
+
+Dog
+IAnimal
+object
+IComparable<Dog>
 
 
 //////////////////////
@@ -56,7 +63,7 @@ Implementing an existing interface.
 
 
 
-Implementing multiple interfaces.
+Implementing multiple interfaces. yes
 
 
 ///////////////////////
@@ -68,36 +75,53 @@ Implementing multiple interfaces.
 Implicit casting vs explicit casting
 
 double pi = 3.14;
-int val = (int) pi; //implicit or explicit?
+int val = (int) pi; //implicit or explicit? explicit!
+
+cast is required - doubles aren't necessarily ints
 
 
 int num = 3;
-double d = num; //implicit or explicit?
+double d = num; //implicit or explicit? implicit
+
+    all integers really are doubles (num.0) - not losing info
 
 
 
 going from a more specific type to a less specific type
 
-    lessSpecific = (need a cast?) moreSpecific;
+    lessSpecific = (need a cast?) moreSpecific; //cast not required
+                                                //implicitly
+
+
+more specific: dog
+less specific: animal
 
 
 
 
 going from a less specific type to a more specific type
    
-       moreSpecific = (need a cast?) lessSpecific;
+       moreSpecific = (need a cast?) lessSpecific; //cast is required
+                                                    //explicitly
 
 
 
 - examples with Dog/Animal
 
-Dog d = (something);
-IAnimal a = d;                  //OK?
+Dog d = new(){Name = "Fido"};
+IAnimal a = d;                  //OK? yes
                                 //can we get the dog's name now?
 
+a.Name  //can't do this - animals don't necessarily have names
 
-IAnimal another = (something);
-Dog d2 = another;               //OK?
+would need:
+((Dog) a).Name
+
+
+IAnimal another = new Dog();
+Dog d2 = another;               //OK? no!
+                                //IAnimal isn't necessarily a dog
+                                //would need explicit cast
 
 
 ///////////////////////////////////////////
@@ -106,6 +130,8 @@ as keyword
 
 IAnimal animal = (something);
 Dog dog = animal as Dog; //what will this do?
+                        //if it is a Dog: equivalent to doing (Dog)
+                        //if not a Dog: return null
 
 
 
@@ -114,13 +140,16 @@ is keyword
 IAnimal another = (something);
 if (another is Dog d) {
     //what can we do here?
+    Console.WriteLine(d.Name);
 }
 
 ////////////////////////
 
 Inheritance 
 
---> what is the idea? 
+--> what is the idea? less work, less duplicate code
+    pulling out common code
+    identify common features
 
 
 --> how is this different than interfaces?
@@ -128,33 +157,50 @@ Inheritance
 
 --> when should we refactor to use inheritance?
 
+    drinks: scaling price for small/large is same
+    ice / size
+
+    bread + ingredients + size in entrees
+
 
 
 What do we have to do when we extend a "regular" (non-abstract) class?
     public class Child : ParentClass
 
     what does child inherit?
+        properties/methods that are public or protected
 
     what does it have to do?
+        nothing
 
 
 
 How do we override a method/property?
-    1) in the parent, say: ???
-    2) in the child, say: ???
+    1) in the parent, say: ??? virtual (give permission to children to do things differently)
+    2) in the child, say: ??? override (I want to use my own instead of my parent's version)
 
 
-Do we HAVE to override things?
+Do we HAVE to override things? no, but the child can
 
 
 
 /////////////////////
 
 Purpose of an abstract class? 
+    put "abstract" before "class Whatever"
+    can't create an object of that type (no "new Whatever()")
+
+
+    often has "template" properties/method headers marked with "abstract"
+
+    if any property/method marked abstract - class must be marked abstract
 
 
 
-Can an abstract class implement an interface?
+Can an abstract class implement an interface? yes
+    must list all requirements from interface
+    doesn't have to fully implement them - but any not implemented would
+        be marked abstract
 
 
 
@@ -162,9 +208,15 @@ What do we have to do when we extend an abstract class?
     public class Child : AbstractClass 
 
     -->what does Child inherit?
+        everything public/protected from AbstractClass
 
 
-    -->what does it have to do?
+    -->what does it have to do? nothing....but if they inherit
+        something abstract and don't implement it, Child must mark themselves
+        as abstract
+
+        Child would put "override" to write their own version of an
+            an abstract (or virtual ) member
 
 
 
@@ -173,50 +225,64 @@ What do we have to do when we extend an abstract class?
 ///////////////////////////////
 
 
-Can we implement more than one interface? 
+Can we implement more than one interface? yes
 
 
 
-Can we extend more than one abstract class?
+Can we extend more than one "regular" class? no
 
 
+Can we extend more than one abstract class? no
 
-Can we extend more than one "regular" class?
 
 
 Does an abstract class have to have abstract methods/properties?
 
+    no - can be fully implemented and still abstract
+    (prevents creating an object of that type)
+
 
 --> protected
-    visibility: ??
+    visibility: ?? inside class + child/descendants
 
 
+////////////////////////////
+
+--> different words for the "parent" class?
+
+    parent, base, super
+
+
+--> different words for the "child" class? 
+
+    child, derived, sub
+    
 
 ////////////////////////////
 
 --> how do constructors work with inheritance?
     
-    Baby extends Parent, which extends Grandparent
+    Corgi extends Dog, which extends Animal
     
 
-   --> when are the different constructors called when we do:
-   Baby e = new Baby();
+   --> when are the different constructors called when we do (assume default constr.):
+   Corgi c = new Corgi();
 
+go to Corgi constructor
+immediately calls Dog constructor
+immediately calls Animal constructor
+do code in Animal constructor
+goes back Dog constructor, does code
+goes back to Corgi constructor, does code
 
+//////////////////////////
+
+stopped here, will continue Wed.
+
+//////////////////////////
 
 
 --> what must a child constructor do if a parent constructor requires parameters?
-
-
-
-
---> different words for the "parent" class?
-
-
-
-
---> different words for the "child" class? 
-
 
 
 
