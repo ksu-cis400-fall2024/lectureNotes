@@ -3,11 +3,11 @@ using InterfaceExamples;
 
 
 //List of animals?
-List<object> list = new();
+List<IAnimal> list = new();
 list.Add(new Dog());
 list.Add(new Chicken());
 
-foreach(object o in list)
+foreach(IAnimal o in list)
 {
     Console.WriteLine(o.Sound());
 }
