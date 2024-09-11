@@ -54,10 +54,9 @@ namespace InheritanceExamples
 
     public class UndergraduateStudent : Student
     {
-        public UndergraduateStudent(string first, string last) : base(first, last)
-        {
-            //why no code here?
-        }
+        //DO THIS
+        //Why is there an error?
+        //How to write constructor that takes first/last name?
     
         //Print?
     }
@@ -67,9 +66,11 @@ namespace InheritanceExamples
     {
         public string BachelorDegree { get; }
 
-        public GraduateStudent(string first, string last, string degree) : base(first, last)
+        //DO THIS
+        //Why is there an error? Fix. What to do with "degree"?
+        public GraduateStudent(string first, string last, string degree) 
         {
-            BachelorDegree = degree;
+            
         }
 
         //Print?

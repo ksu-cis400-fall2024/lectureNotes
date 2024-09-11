@@ -1,0 +1,138 @@
+Milestone 3 due Friday
+
+--> be sure it builds!
+
+///////////////////////////////
+
+Continue with inheritance.
+
+
+See example: Students
+
+
+////////////////////////
+
+See example: Shirts
+
+- what is there in common?
+
+- how to refactor?
+
+////////////////////////
+
+Milestone 3: refactoring your menu items
+
+- IMenuItem interface
+
+- IngredientType enum/IngredientItem class
+    ingredient + name + calories + unit cost + included bool + default bool
+    --> why?
+    --> setting "default" bool (should have "init" instead of "set")
+    --> setting "included" bool
+    --> unit cost?
+
+
+
+
+//////////////////////////////
+
+- Entree (abstract) class implements IMenuItem
+    - Current bread choice, default bread type
+    - Size choice
+    - Collection of *possible* ingredients (List<IngredientItem> or
+                                        Dictionary<Ingredient, IngredientItem>)
+
+        --> should hold JUST possible ingredients for this entree
+
+        protected List<IngredientItem> _possibleToppings = new();
+
+
+        --> how to initialize? 
+
+
+
+
+
+    - How are calories found for ALL subs/wraps/sandwiches?
+
+
+
+
+
+
+    - General way to get preparation information
+        --> how to do "Add ..." or "Hold ..."?
+
+
+
+        --> how to do "Use ... Bread"?
+
+
+
+
+    - General way to define price? price for all is first calculated for a med.,
+        then scaled on size
+        --> could have a protected MediumPrice property that you override in each type
+        --> then Entree's Price property could...?
+        --> would you need to override Price?
+
+
+        (if you want to make price abstract and override in each specific case,
+        that's OK too)
+
+
+
+    - what can Entree do with the bread choice / size choice requirements?
+
+
+/////////////////////////////////////
+
+    - new: CustomSandwich class (extends Entree)
+        --> default bread is wheat, size is med
+        --> ALL ingredients are possible (but none are included by default)
+        --> how to find price of a medium?
+
+
+
+    - All specialty Sandwich/Sub/Wrap classes extend Entree
+        --> Current bread = ? (where to initialize?) 
+        --> Default bread = ? (where to initialize?) 
+        --> Ingredients = ? (where to initialize?) 
+
+        --> do we override Price, Calories, or PreparationInformation?  
+        --> what happens to the size/bread choice properties?
+        --> what happens to all the bool ingredients?
+
+
+
+
+
+    - Drink, Side are abstract, implement IMenuItem
+        - Collect together shared info from drinks and sides
+        - Make all drinks extend Drink, all sides extend Side
+        - Identify common implementations - for all drinks, we find cals/price
+            for a medium (and do this differently for different drinks) and then
+            scale based on size
+
+            --> how could we pull out the common code?
+
+
+        (again, you *can* make Price/Calories abstract and individually override)
+
+
+
+
+    - Sides have fewer overlapping features
+        --> why even have a Side abstract class?
+
+
+
+
+    - Combo implements IMenuItem
+        - EntreeChoice/SideChoice/DrinkChoice
+        - defaults?
+        - calories?
+        - price?
+
+///////////////////////
+
