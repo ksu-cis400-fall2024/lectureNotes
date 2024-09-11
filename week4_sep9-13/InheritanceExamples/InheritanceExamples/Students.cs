@@ -44,7 +44,7 @@ namespace InheritanceExamples
             }
         }
 
-        public void Print()
+        public virtual void Print()
         {
             Console.WriteLine($"Name: {First} {Last}");
             Console.WriteLine($"GPA: {GPA}");
@@ -57,6 +57,11 @@ namespace InheritanceExamples
         //DO THIS
         //Why is there an error?
         //How to write constructor that takes first/last name?
+
+        public UndergraduateStudent(string first, string last) : base(first, last)
+        {
+            //don't need to do anything else
+        }
     
         //Print?
     }
@@ -68,13 +73,13 @@ namespace InheritanceExamples
 
         //DO THIS
         //Why is there an error? Fix. What to do with "degree"?
-        public GraduateStudent(string first, string last, string degree) 
+        public GraduateStudent(string first, string last, string degree) : base(first, last)
         {
-            
+            BachelorDegree = degree;
         }
 
         //Print?
-        public void Print()
+        public override void Print()
         {
             Console.WriteLine($"Name: {First} {Last}");
             Console.WriteLine($"GPA: {GPA}");
@@ -94,6 +99,6 @@ stu.Print();
 
 
 //This one?
-GraduateStudent g = new Student("John", "Doe");
+GraduateStudent g = new Student("John", "Doe"); //NO! student is not necessarily a graduate student
 
 */
