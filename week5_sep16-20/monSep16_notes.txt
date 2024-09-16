@@ -1,0 +1,135 @@
+Monday: Testing tutorial
+Tuesday: UML tutorial
+Friday: Milestone 4
+
+Next week will have a different structure:
+    - No tutorials or milestones
+    - Review on Monday
+    - Exam 1 on Wednesday
+    - Work day Friday
+    - ALL past due assignments must be submitted by Friday, Sept 27
+        for any partial credit
+
+After the exam, we will start on WPF (to make the UI)
+
+//////////////////////////////
+
+Today:
+- Creating a test project
+- Writing test cases 
+- Nullables
+- Implementing a collection
+
+////////////////////////
+
+Implement PeopleYears property in Dog class
+
+
+////////////////////////
+
+Creating an XUnit testing project
+
+Adding a project reference
+
+
+////////////////////////
+
+Basics of writing a unit test
+
+- Fact unit test (default values)
+
+    (what properties have default values for Dog?)
+
+
+
+--> why can't we see the Dog class? How to fix?
+
+
+
+
+- Theory unit test (derived properties and methods)
+
+        How to choose inline data?
+
+
+
+
+
+////////////////////////
+
+In general, what to test?
+
+
+////////////////////////
+
+Kinds of asserts
+
+    Assert.Equal(expected, actual);
+    Assert.Equal(expected, actual, decimalPlacesToCheck);
+
+    Assert.True(value);
+    Assert.False(value);
+
+    Assert.Contains(expectedItem, collection);
+
+    Assert.All(collection, item => (an assert for current item));
+    Assert.IsAssignableFrom<T>(item) 
+
+//////////////////////
+
+Implementing a collection.
+
+Example: AnimalCollection
+Adds a legs count property
+
+
+//////////////////////
+
+UML.
+
+--> be familiar with how to list ALL members
+--> for milestones, only need to list PUBLIC members
+--> constructors?
+
+Relationships:
+    Realization (is-a):
+    Generalization (is-a):
+    Aggregation (has-a):
+    Composition (has-a):
+    (and others, but this is it for now)
+
+
+What members to show if you are implementing an interface?
+
+What members to show if you are extending a class?
+
+///////////////////
+
+
+Nullables
+
+    type? name;
+
+What does it mean? 
+
+Why use them? 
+
+
+
+value types can be nullable too:
+
+    int? a = null;
+
+
+
+null condition operator
+
+    Dog? d = (some value)
+    d?.Print(); //would call Print only if d not null
+
+
+
+///////////////////////
+
+Next time:
+- Discuss testing needs for Milestone 3
