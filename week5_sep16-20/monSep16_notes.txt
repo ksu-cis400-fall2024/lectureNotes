@@ -17,8 +17,9 @@ After the exam, we will start on WPF (to make the UI)
 Today:
 - Creating a test project
 - Writing test cases 
-- Nullables
 - Implementing a collection
+- Nullables
+
 
 ////////////////////////
 
@@ -71,8 +72,8 @@ Kinds of asserts
     Assert.False(value);
 
     Assert.Contains(expectedItem, collection);
-
-    Assert.All(collection, item => (an assert for current item));
+    Assert.All(collection, item => (a condition that should be true for current item));
+    
     Assert.IsAssignableFrom<T>(item) 
 
 //////////////////////
@@ -125,7 +126,7 @@ value types can be nullable too:
 null condition operator
 
     Dog? d = (some value)
-    d?.Print(); //would call Print only if d not null
+    d?.Print(); //when is Print called? (assuming we have a Print method...)
 
 
 
@@ -133,3 +134,4 @@ null condition operator
 
 Next time:
 - Discuss testing needs for Milestone 3
+- Discuss UML for Milestone 3
