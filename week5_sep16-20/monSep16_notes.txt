@@ -74,7 +74,7 @@ Kinds of asserts
     Assert.Contains(expectedItem, collection);
     Assert.All(collection, item => (a condition that should be true for current item));
     
-    Assert.IsAssignableFrom<T>(item) 
+    Assert.IsAssignableFrom<T>(item); 
 
 //////////////////////
 
@@ -90,7 +90,7 @@ UML.
 
 --> be familiar with how to list ALL members
 --> for milestones, only need to list PUBLIC members
---> constructors?
+--> constructors? don't need default
 
 Relationships:
     Realization (is-a):
@@ -101,8 +101,12 @@ Relationships:
 
 
 What members to show if you are implementing an interface?
+    show them ALL in each implementing class
 
 What members to show if you are extending a class?
+    not overridden: just write it in the parent
+    is overridden: list it both places
+
 
 ///////////////////
 
