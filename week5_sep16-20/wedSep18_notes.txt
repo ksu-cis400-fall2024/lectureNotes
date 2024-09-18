@@ -1,0 +1,161 @@
+Friday: Milestone 4
+
+Next week will have a different structure:
+    - No tutorials or milestones
+    - Review on Monday
+    - Exam 1 on Wednesday
+    - Work day Friday
+    - ALL past due assignments must be submitted by Friday, Sept 27
+        for any partial credit
+
+After the exam, we will start on WPF (to make the UI)
+
+//////////////////////////////
+
+Today:
+- Nullables
+- Discuss milestone 4 tests
+- Discuss milestone 4 UML
+
+/////////////////////////////
+
+Nullables
+
+    type? name;
+
+What does it mean? 
+
+Why use them? 
+
+
+
+value types can be nullable too:
+
+    int? a = null;
+
+
+
+null condition operator
+
+    Dog? d = (some value)
+    d?.Print(); //when is Print called? (assuming we have a Print method...)
+
+
+/////////////////////////////
+
+Tests for Milestone 4.
+
+Do first: specific required tests
+
+
+
+- should have a separate test class for each data class
+    - test default values for all properties whose value can change
+        (it is OK if you don't test default for preparation information)
+
+
+
+
+    - test any bounds/constraints for properties (which ones?)
+
+
+
+
+    - test each derived property based on possible configurations
+        which ones? 
+
+        Calories, Price, PreparationInformation
+        don't have to have more than 8 test cases per unit test
+
+
+
+    - test IsAssignableFrom with IMenuItem, base class
+
+
+
+
+
+Example: TurkeyCranberrySandwich
+    (turkey, cranberry sauce, cream cheese, red onion) - included
+    provolone cheese - not included
+    size medium 
+    wheat
+
+
+    what to do for defaults test?
+
+
+
+    any bounds? 
+
+
+
+    what to do for derived properties? what kinds of test cases? theory
+        
+        what should you choose for inline data?
+
+
+
+    What about price?
+
+
+
+    how to test preparation information?
+        InlineData[(..., new string[]{"Add Provolone Cheese", "Hold Turkey"})]
+
+        param: string[]
+
+        want to make sure that every item in the param array is in the 
+            PreparationInformation
+
+        also check size
+
+        (don't use Assert.Equal here)
+
+
+
+
+    Bounds? CookieCount, Bread/Size (2 to 4)
+        take bad values as parameters
+        make sure value doesn't change after setting to bad
+
+
+
+
+Order tests: use mock objects
+    (can we add accessors when implementing interface?)
+
+    
+
+Combo tests:
+
+
+
+CustomSandwich tests:
+
+
+
+/////////////////////////////
+
+UML for Milestone 4.
+
+Relationships:
+    Realization (is-a): 
+    Generalization (is-a):
+    Aggregation (has-a):
+    Composition (has-a):
+    (and others, but this is it for now)
+
+
+Where in our code do we have these relationships?
+
+Enums?
+
+ICollection?
+
+IngredientItem?
+
+Combo?
+
+How to organize?
+
