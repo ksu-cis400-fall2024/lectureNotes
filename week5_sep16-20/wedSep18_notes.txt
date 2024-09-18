@@ -23,7 +23,7 @@ Nullables
 
     type? name;
 
-What does it mean? 
+What does it mean? name is a variable with given type, is allowed to be null
 
 Why use them? 
 
@@ -40,6 +40,8 @@ null condition operator
     Dog? d = (some value)
     d?.Print(); //when is Print called? (assuming we have a Print method...)
 
+    if d not null, will call Print
+    if d null, won't do anything
 
 /////////////////////////////
 
@@ -49,15 +51,26 @@ Do first: specific required tests
 
 
 
+(don't need Entree/Side/Drink/IngredientItem specific files for unit tests)
+
 - should have a separate test class for each data class
     - test default values for all properties whose value can change
         (it is OK if you don't test default for preparation information)
 
 
+    Price
+    Calories
+    Which ingredients are included
+    Which ingredients are optional but not included
+    Size
+    Bread type
+    (any other customizable properties)
 
 
     - test any bounds/constraints for properties (which ones?)
 
+    bread/size constraints for ALL types of sandwiches
+    cookie count (2-6)
 
 
 
@@ -67,10 +80,18 @@ Do first: specific required tests
         Calories, Price, PreparationInformation
         don't have to have more than 8 test cases per unit test
 
+        be the default configuration
+        have all possible ingredients
+        have no possible ingredients
+        try some different bread/size options
+        (configurations that seem like what people would order)
 
 
     - test IsAssignableFrom with IMenuItem, base class
 
+    ClubSub
+        IMenuItem
+        Entree
 
 
 
@@ -83,10 +104,16 @@ Example: TurkeyCranberrySandwich
 
 
     what to do for defaults test?
-
-
-
-    any bounds? 
+        wheat bread
+        medium size
+        check that provolone is NOT included
+        check that turkey, cranberry, etc. ARE included
+        (if you have a Dictionary of ingredients - probably want to make it public)
+        (if you have a List of ingredients - probably want helper methods to
+            see if ingredients are included)
+        make sure count of ingredient collection is 5 (default + optional)
+        calories - 605
+        price - $8.49
 
 
 
@@ -94,9 +121,18 @@ Example: TurkeyCranberrySandwich
         
         what should you choose for inline data?
 
+        Parameters:
+            bread choice
+            size choice
+            bool turkey, bool cranberry, etc. for all possible ingredients
+            expected value for whatever property you're testing for this configuration
+
+        (if you have a list of ingredients, will want helper method to
+        include/not include a particular ingredient)
 
 
-    What about price?
+    What about price?   Assert.Equal(expected, actual, 2)
+
 
 
 
@@ -113,17 +149,38 @@ Example: TurkeyCranberrySandwich
         (don't use Assert.Equal here)
 
 
+   any bounds? 
 
 
-    Bounds? CookieCount, Bread/Size (2 to 4)
+    Bounds? CookieCount, Bread/Size
         take bad values as parameters
         make sure value doesn't change after setting to bad
 
+        CookieCount: try setting to a bad value (8, 1, 7)
+            try setting its count to the bad value
+            assert that its count is still the default (2)
 
+        Bread/size is similar.
+            Size: pass in a bread type, a size to try, what result you expect size to be
+            example: Wheat, Large, (medium is what we expect)
+            example: Wheat, Small, (small is what we expect)
+
+            similarly test the bread
 
 
 Order tests: use mock objects
     (can we add accessors when implementing interface?)
+    new properties: TaxRate, Subtotal, Total, Tax
+    TaxRate: check that default is 0.0915
+
+    private class MockMenuItem : IMenuItem {
+        //list all things from interface
+
+        public decimal Price { get; set; }
+    }
+
+    Subtotal:
+        MockMenuItem m = new() {Price = 5.0m};
 
     
 
@@ -131,7 +188,11 @@ Combo tests:
 
 
 
+
 CustomSandwich tests:
+    all ingredients are possible
+
+    configuration instead of bools. pass IngredientType[] 
 
 
 
@@ -140,22 +201,39 @@ CustomSandwich tests:
 UML for Milestone 4.
 
 Relationships:
-    Realization (is-a): 
-    Generalization (is-a):
-    Aggregation (has-a):
+    Realization (is-a):  implementing an interface
+        dashed line with an open arrow pointing at the interface
+        Drink/Entree/Side/Combo implement IMenuItem
+
+    Generalization (is-a): extending a class
+        solid line with an open arrow pointing at the parent class
+        ClubSub extends Entree
+
+    Aggregation (has-a): 
+        open diamond with the diamond touching the collection
+        Order is a collection of IMenuItem
+
     Composition (has-a):
+        closed diamond with the diamond touching the collection
+        Entree is a collection of IMenuItem
+
     (and others, but this is it for now)
 
 
 Where in our code do we have these relationships?
 
-Enums?
+Enums? put near class that uses, but no lines
 
-ICollection?
+ICollection? Order implements ICollection
 
 IngredientItem?
 
-Combo?
+Combo? is also a collection. It is an Aggregation of entree, side, drink
 
 How to organize?
+    have section for top-level organization (IMenuItem -> Entree, Drink, Side, Combo)
+    Entree section (repeat Entree, show specific ones)
+    Side section
+    Drink section
+    show order as a collection
 
