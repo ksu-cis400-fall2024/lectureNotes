@@ -24,16 +24,31 @@ Major topics:
 - Encapsulation (writing general classes with fields/properties/methods/constructors,
     creating and using objects)
 
+
 - Using properties (when private backing field is needed, enforcing bounds,
     accessors, derived properties)
+
+
+- Interfaces: declaring an interface, implementing an interface, why we use
+
+
+- Inheritance: refactoring to have base/child classes, extending a class,
+    what is inherited, virtual, override, how constructors work, why we use
+
+
+- Abstract classes: declaring, extending, what is inherited, abstract vs virtual,
+    different from an interface
+
 
 - Writing unit tests (Fact, Theory, good test cases, Assert.Equal, Assert.Contains,
     Assert.IsType<T>, Assert.IsAssignableFrom<T>, Assert.True, Assert.False,
     using mock objects)
+    
 
 - Interpreting a UML diagram, drawing a UML diagram
     --> include ALL members (private and protected too)
-    --> associations: realization (implementing an interface - arrow towards interface)
+    --> associations: 
+            realization (implementing an interface - arrow towards interface)
                 has a dashed line
             aggregation/composition (collection of objects) diamond (on the collection)
                 multiplicities (1 on the collection, 0..* or a specific number on object)
@@ -51,13 +66,7 @@ Major topics:
         just show the stuff that is written in that class
 
 
-- Interfaces: declaring an interface, implementing an interface, why we use
 
-- Inheritance: refactoring to have base/child classes, extending a class,
-    what is inherited, virtual, override, how constructors work, why we use
-
-- Abstract classes: declaring, extending, what is inherited, abstract vs virtual,
-    different from an interface
 
 
 //////////////////
