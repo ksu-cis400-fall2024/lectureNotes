@@ -2,8 +2,8 @@ Exam 1 discussion.
 
 Across both sections:
 
-High: 81/100
-Average: 98/100
+Average: 81/100
+High: 98/100
 
 A (90-100): 14 students
 B (80-89): 19 students
@@ -109,8 +109,8 @@ Creating the MainWindow.
 ////
 
 What is DataContext? How does it work?
-    NOT an Order (at least not for this milestone)
     ObservableCollection<IMenuItem>
+
 
 
 Order control should contain a ListView
