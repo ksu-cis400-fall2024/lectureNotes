@@ -1,12 +1,5 @@
-
-Friday: Milestone 5 due
-
---> see demo
-
-
-//////
-
 Next week:
+
 - Two tutorials (Mon/Tues)
 - Milestone 6 will be smaller, no UML/testing
     --> due next *Thursday*
@@ -18,10 +11,17 @@ Next week:
 
 ///////////////////////////
 
+Friday: Milestone 5 due
+
+--> see demo
+
+//////
+
 Types of layouts:
-- StackPanel
-- DockPanel
-- Grid
+- StackPanel - all in a row or column
+- DockPanel - dock things to left/right/top/bottom 
+    if there is extra space, last added item fills space
+- Grid - rows/columns
 
 --> when to use each?
 
@@ -64,6 +64,7 @@ Creating the MainWindow.
 
 What is DataContext? How does it work? Where do we set it?
     ObservableCollection<IMenuItem>
+    do this in the MainWindow constructor
 
 
 
@@ -72,3 +73,15 @@ What is DataContext? How does it work? Where do we set it?
 
 
 How can we add items to the collection when we click buttons?
+    need click event handler
+
+    private void ClickEventHandler(object sender, RoutedEventArgs e) {
+        if (sender is Button b) {
+            if (DataContext is ObservableCollection<IMenuItem> order)
+                if (b.Name == "CustomSandwichCtrl") {
+                    order.Add(new CustomSandwich());
+                }
+            }
+        }
+
+    }
