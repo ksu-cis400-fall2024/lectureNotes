@@ -1,0 +1,74 @@
+
+Friday: Milestone 5 due
+
+--> see demo
+
+
+//////
+
+Next week:
+- Two tutorials (Mon/Tues)
+- Milestone 6 will be smaller, no UML/testing
+    --> due next *Thursday*
+    --> we will walk through much of it in class Mon/Wed
+    --> idea is to help everyone through milestone to be
+        able to enjoy 3-day weekend
+
+(no class next Friday, October 11)
+
+///////////////////////////
+
+Types of layouts:
+- StackPanel
+- DockPanel
+- Grid
+
+--> when to use each?
+
+///////////////////////////
+
+Creating menu control
+    - what kind of layout?
+    - what kind of controls will you have?
+    - do you need to worry about spacing of other components?
+
+
+
+/////
+
+Creating order control
+    - what kind of layout?
+    - what kinds of controls will you have?
+    
+    - should contain a ListView
+
+    <ListView ItemsSource="{Binding}"/>
+
+    What does the "Binding" mean?
+
+
+////
+
+Creating the MainWindow.
+    - how to lay out the menu and the order summary?
+    - how to get the buttons on the bottom?
+
+    Adding a custom control:
+
+    <local:YourControlClass/>
+
+    (can specify properties like Grid.Row, etc. as usual)
+
+
+////
+
+What is DataContext? How does it work? Where do we set it?
+    ObservableCollection<IMenuItem>
+
+
+
+
+
+
+
+How can we add items to the collection when we click buttons?
