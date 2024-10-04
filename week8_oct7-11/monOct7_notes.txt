@@ -1,0 +1,183 @@
+Data binding part 1: due tonight
+    (NOTE: there is a mistake when handling remove in the tutorial
+    - read the Canvas assignment for the correction)
+
+Data binding part 2: due Tuesday
+
+Milestone 6: due Friday
+
+///////////////////////////////////
+
+See MS 6 demo.
+
+
+Milestone 6 summary:
+
+- Use Order as DataContext (requires some changes to Order)
+- Display name and price of each menu item in the order summary
+- Subtotal/tax/total are automatically updated as items are added
+- Cancel order is implemented
+- Remove item is implemented
+
+//////////////////////////////////
+
+Data binding.
+
+Idea: front end display is bound to back end data. Changing one changes both.
+
+
+
+- Controls have a DataContext
+- an attribute in a control can be bound to a property in the control's DataContext
+
+In a control, can do something like:
+    Text = "{Binding PropertyName}"
+
+    or:
+        Text = "{Binding Path=PropertyName}"
+
+
+    or (if DataContext is an IEnumerable):
+        ItemsSource="{Binding}"
+
+
+--> control will see if its DataContext has property called PropertyName
+    --> if it does, it displays PropertyName
+    --> if it doesn't, it displays nothing (no errors)
+
+
+Remember that different controls *can* have different DataContexts.
+
+If they don't define their own, they "inherit" the DataContext of the
+    control they were added to
+
+
+//////////////////////////////////
+
+Number property.
+
+- Want first order to be 1
+
+- Next order to be 2
+
+- Etc.
+
+
+
+Solution:
+    private static uint _nextOrderNum = 1;
+
+    private uint _number = _nextOrderNum++; //when does ++ happen?
+
+
+    --> what to do in Number property?
+
+
+
+//////////////////////////////////
+
+PlacedAt property.
+    - Type is DateTime
+    - get-only
+    - initialize to *now* (DateTime.Now)
+
+
+//////////////////////////////////
+
+INotifyCollectionChanged interface
+    public event NotifyCollectionChangedEventHandler? CollectionChanged;
+
+
+This is an *event handler*
+
+We can invoke CollectionChanged when the contents of a collection change 
+    - when a collection is bound to a ListView, WPF automatically listens
+        for CollectionChanged events
+    - it attaches its own handler to CollectionChanged, which contains code 
+        to redraw the GUI
+
+
+CollectionChanged?.Invoke(...)
+
+    - see Data Binding Tutorial 1
+    - need to invoke CollectionChanged in Order's Add, Remove, Clear
+
+
+////////////////////////////
+
+What to do in SubHero?
+
+In Order:
+    - Create the Number and PlacedAt properties in Order
+    - Implement INotifyCollectionChanged and invoke in Add/Clear/Remove
+
+In MainWindow:
+    - Make the DataContext a new Order instead
+
+In Order summary XAML:
+    - Have order number TextBlock bound to Number property:
+        ...Text="{Binding Number, StringFormat='Order number: {0}'}"
+
+    - have date TextBlock bound to PlacedAt property (similar)
+    - have subtotal/tax/total TextBlocks bound to those Order properties, like:
+        ...Text="{Binding Subtotal, StringFormat='Subtotal: {0:C}'}"
+
+- In menu selection code-behind:
+    - Treat the DataContext as an Order
+
+
+--> Once you do this, you should have the same behavior as MS5
+    (but with the order number, date, and subtotal/tax/total coming from Order)
+
+    Note: subtotal/tax/total will display $0.00 even as you add menu items 
+    UNTIL Order also implements INotifyPropertyChanged
+
+///////////////////////////
+
+Implementing Cancel Order button.
+
+- Add click event handler
+- Get the DataContext as an Order, and call Clear
+
+
+///////////////////////////
+
+Displaying name/price/remove capability of each item in Order Summary:
+
+<ListView HorizontalContentAlignment="Stretch" ItemsSource="{Binding}">
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            
+            Now use a layout (maybe StackPanel) that includes:
+
+            TextBlock for item's name (bind to Name property)
+            TextBlock for item's price (bind to Price property)
+            Button for removing the item (include a Click event)
+
+        </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>
+
+
+This layout will be applied to EACH item in the Order. The DataContext of 
+the ListView.ItemTemplate is automatically an IMenuItem. Similarly, the
+DataContext of the remove button is automatically an IMenuItem.
+
+//////////////////////////
+
+Write the remove click event handler in order summary code-behind:
+
+private void RemoveItemClick(object sender, RoutedEventArgs e)
+
+
+What is DataContext?
+
+What is sender?
+
+What is sender's DataContext?
+
+How to remove?
+
+///////////////////////////
+
+On Wednesday: we'll talk about implementing INotifyPropertyChanged
