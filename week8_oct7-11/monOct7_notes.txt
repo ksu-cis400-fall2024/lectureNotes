@@ -4,7 +4,9 @@ Data binding part 1: due tonight
 
 Data binding part 2: due Tuesday
 
-Milestone 6: due Friday
+Milestone 6: due Thursday
+    (let me know by Thursday if you need an extra day, and I'll move your
+    deadline to Friday)
 
 ///////////////////////////////////
 
