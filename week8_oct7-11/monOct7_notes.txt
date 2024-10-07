@@ -30,6 +30,7 @@ Idea: front end display is bound to back end data. Changing one changes both.
 - Controls have a DataContext
 - an attribute in a control can be bound to a property in the control's DataContext
 
+
 In a control, can do something like:
     Text = "{Binding PropertyName}"
 
@@ -44,6 +45,7 @@ In a control, can do something like:
 --> control will see if its DataContext has property called PropertyName
     --> if it does, it displays PropertyName
     --> if it doesn't, it displays nothing (no errors)
+
 
 
 Remember that different controls *can* have different DataContexts.
@@ -109,21 +111,29 @@ What to do in SubHero?
 
 In Order:
     - Create the Number and PlacedAt properties in Order
-    - Implement INotifyCollectionChanged and invoke in Add/Clear/Remove
+    - Implement INotifyCollectionChanged
+    - Invoke CollectionChanged in in Add/Clear/Remove
+
 
 In MainWindow:
     - Make the DataContext a new Order instead
+
+
 
 In Order summary XAML:
     - Have order number TextBlock bound to Number property:
         ...Text="{Binding Number, StringFormat='Order number: {0}'}"
 
     - have date TextBlock bound to PlacedAt property (similar)
+
     - have subtotal/tax/total TextBlocks bound to those Order properties, like:
         ...Text="{Binding Subtotal, StringFormat='Subtotal: {0:C}'}"
 
+
+
 - In menu selection code-behind:
     - Treat the DataContext as an Order
+
 
 
 --> Once you do this, you should have the same behavior as MS5
@@ -148,11 +158,12 @@ Displaying name/price/remove capability of each item in Order Summary:
     <ListView.ItemTemplate>
         <DataTemplate>
             
-            Now use a layout (maybe StackPanel) that includes:
+            Now use a layout that includes:
 
-            TextBlock for item's name (bind to Name property)
-            TextBlock for item's price (bind to Price property)
-            Button for removing the item (include a Click event)
+                TextBlock for item's name (bind to Name property)
+                TextBlock for item's price (bind to Price property)
+                Preparation information for item (use a ListView)
+                Button for removing the item (include a Click event)
 
         </DataTemplate>
     </ListView.ItemTemplate>
