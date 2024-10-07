@@ -8,6 +8,8 @@ Milestone 6: due Thursday
     (let me know by Thursday if you need an extra day, and I'll move your
     deadline to Friday)
 
+    no class Friday
+
 ///////////////////////////////////
 
 See MS 6 demo.
@@ -68,13 +70,24 @@ Number property.
 
 
 
+
+
+
+
+
+
+
+
 Solution:
     private static uint _nextOrderNum = 1;
 
     private uint _number = _nextOrderNum++; //when does ++ happen?
+                                //happens AFTER the initialization
 
 
     --> what to do in Number property?
+
+    public uint Number => _number;
 
 
 
@@ -84,6 +97,13 @@ PlacedAt property.
     - Type is DateTime
     - get-only
     - initialize to *now* (DateTime.Now)
+
+
+public DateTime PlacedAt {get;} = DateTime.Now;
+
+
+
+
 
 
 //////////////////////////////////
@@ -148,8 +168,17 @@ In Order summary XAML:
 
 Implementing Cancel Order button.
 
-- Add click event handler
-- Get the DataContext as an Order, and call Clear
+
+
+How to do this?
+    in XAML: Click="NameOfMethod"
+    in code-behind: add click event with that name
+
+in the click event method:
+
+if (DataContext is Order o) {
+    call Clear on the order
+}
 
 
 ///////////////////////////
@@ -160,37 +189,50 @@ Displaying name/price/remove capability of each item in Order Summary:
     <ListView.ItemTemplate>
         <DataTemplate>
             
-            Now use a layout that includes:
+            Now use a layout (maybe stack panel) that includes:
 
-                TextBlock for item's name (bind to Name property)
-                TextBlock for item's price (bind to Price property)
-                Preparation information for item (use a ListView)
-                Button for removing the item (include a Click event)
+                Name, Price, remove button
+                <TextBlock Text="{Binding Name}"/>
+                similarly price
+                <Button Click="SomeMethodName" ...
 
         </DataTemplate>
     </ListView.ItemTemplate>
 </ListView>
 
 
-This layout will be applied to EACH item in the Order. The DataContext of 
-the ListView.ItemTemplate is automatically an IMenuItem. Similarly, the
-DataContext of the remove button is automatically an IMenuItem.
+
+
 
 //////////////////////////
 
 Write the remove click event handler in order summary code-behind:
 
-private void RemoveItemClick(object sender, RoutedEventArgs e)
+private void RemoveItemClick(object sender, RoutedEventArgs e) {
+
+    DataContext - Order
+    sender is the button that was clicked
+    sender's DataContext is an IMenuItem
+}
 
 
 What is DataContext?
+    if (DataContext is Order o)
 
-What is sender?
+What is sender? is the button that was typed 
 
 What is sender's DataContext?
+
+    if (sender is Button b) {
+        if (b.DataContext is IMenuItem item) 
+    }
 
 How to remove?
 
 ///////////////////////////
 
-On Wednesday: we'll talk about implementing INotifyPropertyChanged
+On Wednesday: we'll talk about implementing INotifyPropertyChange
+
+
+In Add/Remove/Clear want to invoke PropertyChanged to say 
+    Subtotal/Tax/Total might have changed
