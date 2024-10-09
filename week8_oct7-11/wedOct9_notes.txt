@@ -1,0 +1,39 @@
+Milestone 6 due Thursday
+
+Let me know by Thursday if you need an extra day
+
+The next week's module will be available Thursday
+    (tutorials next Mon/Tues, Milestone 7 next Fri)
+
+///////////////////////////////////
+
+Need order summary to update subtotal/tax/total as you add/remove items
+
+Answer: Order implements INotifyPropertyChanged
+
+
+public event PropertyChangedEventHandler? PropertyChanged;
+
+
+Need to invoke PropertyChanged whenever something happens that changes
+    the value of a property
+
+
+PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyName)));
+
+
+--> user controls are subscribed to the PropertyChanged event for their DataContext
+    --> if the control uses data binding with the affected property, it
+        will automatically rerender itself
+
+
+
+When do we need to invoke PropertyChanged? For what properties?
+
+
+
+Also: TaxRate.
+
+////////////////////////
+
+Clarification: cancel order button
