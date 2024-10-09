@@ -30,10 +30,17 @@ PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PropertyName))
 
 When do we need to invoke PropertyChanged? For what properties?
 
+    Add: Total, Subtotal, Tax
+    Remove: Total, Subtotal, Tax
+    Clear: Total, Subtotal, Tax
 
 
-Also: TaxRate.
+Also: TaxRate (affects: Tax, Total, TaxRate)
+
+
 
 ////////////////////////
 
 Clarification: cancel order button
+    call Clear on the order
+    order number will not change
