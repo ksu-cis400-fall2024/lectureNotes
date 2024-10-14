@@ -76,22 +76,28 @@ See example.
 
 ///////////////////
 
+Send info between menu selection and main window
+    (send info about the item selected, main window should change what control is visible)
+
 Custom event steps in MS7:
 1) Make a custom event args class that extends RoutedEventArgs. It should
     contain the info needed about the event. (What is needed?)
 
- 
+    IMenuItem
+
 
 
 2) Declare an event with your custom args in the class where the action will happen
-    (where is this?)
+    (where is this?) 
 
+    menu selection control
 
 
 
 3) Invoke your event (with the info in a new custom args) when the action happens
     (when would this be? How to get the info?)
 
+    in the click event handler(s) for the different menu items
 
 
 
@@ -100,6 +106,7 @@ Custom event steps in MS7:
         CustomEvent?.Invoke(this, new CustomEventArgs(new Chips()));
 
         //is this the right idea?
+        //only want ONE Chips instance, use in both order and event
     }
 
 
@@ -108,14 +115,29 @@ Custom event steps in MS7:
     method that takes a sender and a custom args. Do whatever is needed.
     (where should the event handler be? what should it do?)
 
+    MainWindow
 
 
+    private void OnCustomize(object? sender, CustomEventArgs e) {
+        //want to: display the matching customization control
+
+        //get the IMenuItem from e
+
+        //use selection statements to make the corresponding control visible
+
+        //set that customization control's DataContext to be that IMenuItem
+
+        //make all other customization controls (and menu control) hidden
+    }
 
 
 5) In the same class as #4, attach your event handler to the event in #2
     (where to do this?)
 
+    MainWindow's constructor
+    attach your custom event handler to your menu selection's event
 
+    (will need to give menu selection control a name in the XAML)
 
 /////////////////////
 
@@ -130,7 +152,7 @@ In Data:
 2) Mark that IMenuItem implements INotifyPropertyChanged
 
 
-3) Declare PropertyChanged event in all abstract classes
+3) Declare PropertyChanged event in all parent classes (Entree, Drink, Side, Combo)
 
 
 4) Put protected helper method in all abstract classes
@@ -146,6 +168,22 @@ In Data:
 
 
     Examples?
+
+        Cookies.
+            CookieCount: CookieCount, Price, Calories, PreparationInformation
+                do this in CookieCount set 
+                    _cookieCount = value;
+                    OnPropertyChanged(nameof(Price));
+                    etc.
+            Flavor: Flavor, Calories, PreparationInformation
+
+        Apple.
+            Sliced: Sliced, Price, PreparationInformation
+
+            public bool Sliced {get; set;} = false;
+
+            make our own private backing field
+            expand out the get and the set
 
 
     IngredientItems?

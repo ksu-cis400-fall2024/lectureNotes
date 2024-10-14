@@ -23,6 +23,15 @@ namespace EventExample
         public MainWindow()
         {
             InitializeComponent();
+
+            //attach our custom event handler
+            MyControl.ChangeColor += HandleColorChange;
+        }
+
+        private void HandleColorChange(object? sender, ColorEventArgs e)
+        {
+            //want to put "red" or "blue" in my TextBlock
+            ColorText.Text = e.ColorInfo;
         }
     }
 }
