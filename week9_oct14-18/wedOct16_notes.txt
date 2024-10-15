@@ -25,13 +25,23 @@ item.PropertyChanged += HandleOrderChanges;
 
 Entree - custom lists for bread, size options
 
-Add two properties:
-    public IEnumerable<BreadType> BreadOptions
+    Add two private fields:
+        private Dictionary<BreadType, List<SizeType>> _sizesByBreadChoice;
+        private Dictionary<SizeType, List<BreadType>> _breadsBySizeChoice;
 
-    public IEnumerable<SizeType> SizeOptions
+        --> populate in Entree constructor
 
 
-How to implement?
+        public IEnumerable<BreadType> BreadOptions
+            --> how to implement?
+
+        public IEnumerable<SizeType> SizeOptions
+            --> how to implement?
+
+
+///////
+
+How to use in Point of sale?
 
 
 In Entree customization control, add ComboBox
@@ -42,8 +52,3 @@ In Entree customization control, add ComboBox
 
 Updating (current) Bread, Size choice in Entree:
     What to do with PropertyChanged?
-
-    FYI: update those sets to first make sure value is different than the
-        current backing field (and return if not)
-
-        Can cause stack overflow otherwise
