@@ -11,13 +11,19 @@ In Add, attach to item's PropertyChanged:
     item.PropertyChanged += HandleOrderChanges;
 
 
---> then what to do?
+--> then what to do? write HandleOrderChanges method in Order
+    private void HandleOrderChanges(object sender, PropertyChangedEventArgs e) {
+        if (e.PropertyName == "Price") {
+            //now invoke Order's own PropertyChanged for: Total, Tax, Subtotal
+        }
+
+    }
 
 
 
 
---> what to do in Remove, Clear?
-
+--> what to do in Remove, Clear? remove the HandleOrderChanges event from those items
+item.PropertyChanged -= HandleOrderChanges;
 
 
 ///////////////////////////////
@@ -29,11 +35,14 @@ Entree - custom lists for bread, size options
         private Dictionary<SizeType, List<BreadType>> _breadsBySizeChoice;
 
         --> populate in Entree constructor
+            instantiate those dictionaries
+
+            we want to populate for Sourdough
+
+            _sizesByBreadChoice.Add(BreadType.Sourdough, new List<SizeType>{SizeType.Small, SizeType.Small});
 
 
-
-
-        public IEnumerable<BreadType> BreadOptions
+        public IEnumerable<BreadType> BreadOptions => _breadsBySizeChoice[Size];
             --> how to implement?
 
 
@@ -46,11 +55,12 @@ Entree - custom lists for bread, size options
 How to use in Point of sale?
 
 
-In Entree customization control, add ComboBox
-    ItemsSource is?
-    SelectedItem is?
+In Entree customization control, add ComboBox for Bread choices
+    ItemsSource is? BreadOptions
+    SelectedItem is? current bread property
 
-
+similarly for size
 
 Updating (current) Bread, Size choice in Entree:
-    What to do with PropertyChanged?
+    What to do with PropertyChanged? 
+        invoke, say BreadOptions/SizeOptions have changed
