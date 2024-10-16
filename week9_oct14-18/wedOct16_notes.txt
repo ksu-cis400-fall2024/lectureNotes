@@ -8,7 +8,7 @@ How to make Order properties change when items are customized?
 
 In Add, attach to item's PropertyChanged:
 
-item.PropertyChanged += HandleOrderChanges;
+    item.PropertyChanged += HandleOrderChanges;
 
 
 --> how to write HandleOrderChanges?
