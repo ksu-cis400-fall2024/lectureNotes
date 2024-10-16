@@ -11,10 +11,9 @@ In Add, attach to item's PropertyChanged:
     item.PropertyChanged += HandleOrderChanges;
 
 
---> how to write HandleOrderChanges?
-    (sender, PropertyChangedEventArgs)
+--> then what to do?
 
-    (can check PropertyName of the args -- which one do we care about?)
+
 
 
 --> what to do in Remove, Clear?
@@ -32,8 +31,11 @@ Entree - custom lists for bread, size options
         --> populate in Entree constructor
 
 
+
+
         public IEnumerable<BreadType> BreadOptions
             --> how to implement?
+
 
         public IEnumerable<SizeType> SizeOptions
             --> how to implement?
