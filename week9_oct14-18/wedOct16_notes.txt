@@ -11,42 +11,42 @@ In Add, attach to item's PropertyChanged:
     item.PropertyChanged += HandleOrderChanges;
 
 
---> then what to do? write HandleOrderChanges method in Order
-    private void HandleOrderChanges(object sender, PropertyChangedEventArgs e) {
-        if (e.PropertyName == "Price") {
-            //now invoke Order's own PropertyChanged for: Total, Tax, Subtotal
-        }
+--> then what to do? write the HandleOrderChanges method
 
+private void HandleOrderChanges(object sender, PropertyChangedEventArgs e) {
+    if (e.PropertyName == "Price") {
+        Order invokes PropertyChanged for: Subtotal, Tax, Total
     }
+}
 
 
 
+--> what to do in Remove, Clear? remove the event handler for those items
 
---> what to do in Remove, Clear? remove the HandleOrderChanges event from those items
 item.PropertyChanged -= HandleOrderChanges;
-
 
 ///////////////////////////////
 
 Entree - custom lists for bread, size options
 
     Add two private fields:
-        private Dictionary<BreadType, List<SizeType>> _sizesByBreadChoice;
-        private Dictionary<SizeType, List<BreadType>> _breadsBySizeChoice;
+        private Dictionary<BreadType, List<SizeType>> _sizesByBreadChoice = new();
+        private Dictionary<SizeType, List<BreadType>> _breadsBySizeChoice = new();
 
         --> populate in Entree constructor
-            instantiate those dictionaries
 
-            we want to populate for Sourdough
+            (how to add entry for sourdough?)
 
-            _sizesByBreadChoice.Add(BreadType.Sourdough, new List<SizeType>{SizeType.Small, SizeType.Small});
+            _sizesByBreadChoice.Add(BreadType.Sourdough, new List<SizeType>{SizeType.Small, SizeType.Medium});
+
+            (repeat with other bread types, repeat with all sizes)
 
 
-        public IEnumerable<BreadType> BreadOptions => _breadsBySizeChoice[Size];
+        public IEnumerable<BreadType> BreadOptions => _breadsBySizeChoice[CurrentSize];
             --> how to implement?
 
 
-        public IEnumerable<SizeType> SizeOptions
+        public IEnumerable<SizeType> SizeOptions (similar)
             --> how to implement?
 
 
@@ -55,12 +55,12 @@ Entree - custom lists for bread, size options
 How to use in Point of sale?
 
 
-In Entree customization control, add ComboBox for Bread choices
+In Entree customization control, add ComboBox for Bread choices (and Size choices)
     ItemsSource is? BreadOptions
-    SelectedItem is? current bread property
+    SelectedItem is? CurrentBread property
 
 similarly for size
 
 Updating (current) Bread, Size choice in Entree:
-    What to do with PropertyChanged? 
-        invoke, say BreadOptions/SizeOptions have changed
+    What to do with PropertyChanged? for Size: invoke to say BreadOptions have changed
+        (and similarly for bread)
