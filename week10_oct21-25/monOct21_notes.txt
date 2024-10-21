@@ -26,7 +26,7 @@ Ingredient customization.
 - If you stored ingredients as a Dictionary, you may want to create a new property
     in Entree to expose a List of the IngredientItems:
 
-       public List<IngredientItem> AllIngredients => (name of Dictionary).Values.ToList();
+public List<IngredientItem> AllIngredients => (name of Dictionary).Values.ToList();
 
 
 (You might want to do something similar in SideSalad)
@@ -34,8 +34,8 @@ Ingredient customization.
 
 ///////////////
 
-Good choice: display all possible ingredients in a ListView
-    --> each list item will be a check box / name of ingredient
+For entrees/salads, want to display all possible ingredients
+    --> each item should have a check box / name of ingredient
 
 
 Two ways to populate:
