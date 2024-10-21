@@ -1,0 +1,194 @@
+Programmatic controls tutorial: due Monday
+MVVM tutorial: due Tuesday
+Milestone 8: due Friday
+
+
+//////////////////
+
+See Milestone 8 demo
+
+//////////////////
+
+Summary of requirements:
+- Add ingredient customization to side salad, entrees
+- Add "make it a combo" functionality
+- Implement "complete order"
+
+/////////////////
+
+Ingredient customization.
+
+- Still use ONE Entree control for sandwiches
+- You should have a List<IngredientItem> OR a Dictionary<Ingredient, IngredientItem>
+    --> this should contain ONLY those ingredients allowed for a particular entree 
+
+
+- If you stored ingredients as a Dictionary, you may want to create a new property
+    in Entree to expose a List of the IngredientItems:
+
+       public List<IngredientItem> AllIngredients => (name of Dictionary).Values.ToList();
+
+
+(You might want to do something similar in SideSalad)
+
+
+///////////////
+
+Good choice: display all possible ingredients in a ListView
+    --> each list item will be a check box / name of ingredient
+
+
+Two ways to populate:
+    1) Use same approach as programmatic controls video to add the check boxes
+        in the code-behind for the Entree control 
+            --> call this method when you display the control
+            --> you will also need to clear the check boxes when you display
+                the control again 
+
+
+
+    2) In Entree control XAML, make a ListView whose ItemsSource binds to your
+        list of IngredientItems. 
+
+            ItemsSource="{Binding IngredientItemListName}"
+        
+        
+        You can make a custom data template (like we did in
+        order summary) where you display a check box and TextBlock for each item
+
+
+        --> what would the DataContext of an item in the ListView be?
+        --> what would that mean we could bind to?
+
+
+(Again, you can update the side salad control similarly)
+
+////////////////////
+
+Handling PropertyChanged.
+
+--> IngredientItem implements INotifyPropertyChanged
+
+    when to invoke?
+
+
+
+--> How to make sure Entree's properties change when ingredients change?
+
+
+
+///////////////////
+
+Make it a combo
+
+- Add "Make it a Combo" button to Entree control
+- When that button is clicked, you should:
+    - remove that item from the Order
+    - add a Combo with the entree as the sandwich choice to the Order
+    - hide the Entree customization screen
+    - display the combo customization screen
+
+
+You want to send a message from ??? control to ???
+
+How to do this?
+
+(at some point, make "Make it a Combo" button hidden if the entree is part 
+of a combo...but don't worry about this until last)
+
+///////////////////
+
+Combo customization.
+
+--> what does Combo need to do with PropertyChanged?
+
+
+
+- Want to display:
+
+    Selected entree. Option to edit entree. Option to pick new entree.
+    Selected side. Option to edit side. Option to pick new side.
+    Selected drink. Option to edit drink. Option to pick new drink.
+
+////
+
+Think about just entree selection first.
+
+In Combo, create List<Entree> EntreeTypes property. Add:
+    - the current SandwichChoice
+    - instances of every other kind of entree (except SandwichChoice)
+
+
+
+
+What to do in SandwichChoice set?
+
+
+
+In ComboBox for entree selection:
+    - ItemsSource = ?
+    - SelectedItem = ?
+
+
+What should Combo's "Edit entree" button do?
+
+
+(now do same for sides/drinks)
+
+//////////////////
+
+
+MVVM - Model-View-ViewModel
+
+--> common design pattern (esp. in mobile/web dev, but also desktop) similar
+    to MVC
+
+- Model holds the Data 
+- View is the XAML (ideally, with minimal code in the code-behind)
+- ViewModel handles the logic for the view -- it is the go-between
+    - ViewModel has an instance of the Model
+    - It exposes Model properties and/or includes additional properties with
+        logic about what should be displayed
+    - It serves as the DataContext for the View (so the View binds to
+        properties in the ViewModel)
+
+
+--> in full MVVM, each control would have a separate ViewModel. Instead of
+    click, etc. events in the code-behind, we would use Commands
+    (similar idea [still occur with particular actions] but invokes methods 
+    in the ViewModel that in turn would change our properties)
+
+
+///////////////////
+
+Payment control.
+
+- display final costs, allow user to enter payment info 
+- (will discuss data validation on Wednesday)
+
+PaymentViewModel:
+    - holds an Order instance
+    - is the DataContext for PaymentControl
+    - Contains properties for PaymentControl to bind to:
+        --> What to "pass through" from order?
+
+
+        --> What new properties?
+
+
+
+        --> property for whether a control is enabled?
+
+
+        --> property for text of an error message?
+
+
+    --> if we are binding to (changing!) properties in PaymentViewModel,
+        what does PaymentViewModel need to do so we get the changes?
+
+
+
+
+////////////////////
+
+Wednesday: discuss data validation
