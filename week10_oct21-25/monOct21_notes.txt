@@ -58,7 +58,11 @@ Two ways to populate:
 
 
         --> what would the DataContext of an item in the ListView be?
+            IngredientItem
+
         --> what would that mean we could bind to?
+            check box's IsChecked - bind to Included 
+            TextBlock's Text - bind to Name
 
 
 (Again, you can update the side salad control similarly)
@@ -70,11 +74,28 @@ Handling PropertyChanged.
 --> IngredientItem implements INotifyPropertyChanged
 
     when to invoke?
+        in the set for Included
+            invoke that Included has changed
 
 
 
 --> How to make sure Entree's properties change when ingredients change?
 
+    (each ingredient item).PropertyChanged += OurOwnEventHandler;
+
+    (loop over your collection of IngredientItems)
+
+
+    within OurOwnEventHandler:
+        invoke PropertyChanged for: PreparationInformation, Calories, Price
+
+
+
+(similar to Order:
+    in Add, we did:
+        item.PropertyChanged += OurOwnEventHandler;
+
+)
 
 
 ///////////////////
@@ -89,9 +110,9 @@ Make it a combo
     - display the combo customization screen
 
 
-You want to send a message from ??? control to ???
+You want to send a message from Combo control control to MainWindow
 
-How to do this?
+How to do this? custom event (just like with menu control)
 
 (at some point, make "Make it a Combo" button hidden if the entree is part 
 of a combo...but don't worry about this until last)
@@ -123,14 +144,32 @@ In Combo, create List<Entree> EntreeTypes property. Add:
 
 What to do in SandwichChoice set?
 
+    public Entree SandwichChoice {
+        get ...
+        set {
+            detach my custom event handler from _sandwichChoice
+
+            _sandwichChoice = value;
+            _sandwichChoice.PropertyChanged += MyCustomEventHandler;
+
+            invoke PropertyChanged for Price, Calories, PreparationInformation,
+                SandwichChoice, EntreeTypes
+        }
+    }
+
+
+MyCustomEventHandler should invoke PropertyChanged for Price, Calories, PreparationInformation
 
 
 In ComboBox for entree selection:
-    - ItemsSource = ?
-    - SelectedItem = ?
+    - ItemsSource = EntreeTypes
+    - SelectedItem = SandwichChoice
 
 
 What should Combo's "Edit entree" button do?
+    bring up customization screen for that entree
+
+    custom event between Combo customization control and MainWindow
 
 
 (now do same for sides/drinks)
@@ -172,21 +211,31 @@ PaymentViewModel:
     - Contains properties for PaymentControl to bind to:
         --> What to "pass through" from order?
 
+            public decimal Subtotal => _order.Subtotal;
+
 
         --> What new properties?
+
+            Change, PaymentAmount
 
 
 
         --> property for whether a control is enabled?
+            IsEnabled="{Binding EnoughFunds}"
 
+
+        public bool EnoughFunds ...
 
         --> property for text of an error message?
+            return "" if enough funds, otherwise return the error message
 
 
     --> if we are binding to (changing!) properties in PaymentViewModel,
         what does PaymentViewModel need to do so we get the changes?
 
-
+view model implements INotifyPropertyChanged
+    in set for the payment amount, invoke PropertyChanged for:
+        change, the message, bool EnoughFunds property, payment amount itself
 
 
 ////////////////////
