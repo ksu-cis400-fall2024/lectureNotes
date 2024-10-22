@@ -1,0 +1,64 @@
+Milestone 8: due Friday
+
+/////////////////////////
+
+Data validation in WPF
+
+
+<TextBox>
+    <TextBox.Text>
+        <Binding Path="SomePropertyName" Delay="500" UpdateSourceTrigger="PropertyChanged">
+            <Binding.ValidationRules>
+                <ExceptionValidationRule/>
+            </Binding.ValidationRules>
+        </Binding>
+    </TextBox.Text>
+</TextBox>
+
+
+Idea: will put red marker around the TextBox if setting the property causes
+    an exception (it will NOT try to do the set if the type you enter
+    doesn't match the property type)
+
+
+Default "UpdateSourceTrigger" for a TextBox is when it loses focus
+    --> we want to apply our data validation whenever the property changes
+        (i.e., as the user types), so we make it be "PropertyChanged"
+
+    --> the delay waits the given amount (here, 500ms) before setting the property
+        (lets the user finish typing)
+
+
+
+/////////////////////////
+
+--> see similar example
+
+--> what if we wanted the cost to show as $0.00 for an invalid #shirts?
+
+
+
+/////////////////////////
+
+Printing the receipt
+
+File.AppendAllText("receipts.txt", someGiantTextString);
+
+How to build the text string?
+
+
+
+
+/////////////////////////
+
+How to get rid of "Make it a Combo" button?
+
+
+
+
+////////////////////////
+
+Upcoming:
+--> next week involves documentation, UML, testing based on MS7 and MS8 changes
+--> only one tutorial - on UML considerations in WPF
+--> Exam 2 is the week after that (Wed November 6)
