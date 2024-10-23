@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ValidationExample
 {
-    public class CalcViewModel
+    public class CalcViewModel : INotifyPropertyChanged
     {
 
         private uint _shirts = 0;
@@ -18,8 +18,20 @@ namespace ValidationExample
             {
                 _shirts = value;
 
+                if (_shirts > 10)
+                {
+                    _shirts = 0;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Shirts)));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cost)));
+
+                    throw new ArgumentException("too many shirts");
+                }
+
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Shirts)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cost)));
+
                 //throw exception if #shirts is invalid (more than 10)
-                
+
                 //how to make sure cost is updated on GUI?
             }
         }
@@ -28,10 +40,11 @@ namespace ValidationExample
         {
             get
             {
-                //$10 each for up to 5 shirts, $8 each after that
-
-                return 0.00m;
+                if (Shirts <= 5) return Shirts * 10.00m;
+                else return 5 * 10.00m + 8.00m * (Shirts - 5);
             }
         }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

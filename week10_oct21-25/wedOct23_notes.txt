@@ -55,12 +55,18 @@ How to build the text string?
 
 How to get rid of "Make it a Combo" button?
 
+visible: when it is not part of a Combo
+not visible: when it is part of a Combo
 
+add property to Entree to keep track of whether this entree is in a Combo
+
+every time you make entree control visible, check that property
+    make the button visible or not
 
 
 ////////////////////////
 
 Upcoming:
---> next week involves documentation, UML, testing based on MS7 and MS8 changes
+--> next week involves documentation, UML, testing based on MS6, MS7, and MS8 changes
 --> only one tutorial - on UML considerations in WPF
 --> Exam 2 is the week after that (Wed November 6)
