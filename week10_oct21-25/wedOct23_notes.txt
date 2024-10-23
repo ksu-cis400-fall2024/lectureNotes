@@ -1,4 +1,6 @@
-Milestone 8: due Friday
+Milestone 8: extended to Sunday, October 27
+    (Milestone 7 and 8 are the biggest milestones of the course)
+
 
 /////////////////////////
 
@@ -17,7 +19,7 @@ Data validation in WPF
 
 
 Idea: will put red marker around the TextBox if setting the property causes
-    an exception (it will NOT try to do the set if the type you enter
+    an exception (it will NOT try to do the set if what you enter
     doesn't match the property type)
 
 
