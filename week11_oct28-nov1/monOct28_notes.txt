@@ -17,13 +17,9 @@ Exam 2: Wednesday, November 6
 Milestone 9.
 - Update UML to match current state of your application
 
-- Unit test Order updates from Milestone 6:
-    - Number, PlacedAt 
-    - collection/property changed stuff
+- Unit test updates from Milestones 6-8
 
-- Unit test PropertyChanged implementation from Milestone 7 and 8
-
-- Integration testing for ViewModel
+- Integration testing
 
 
 //////////////////////////////////
