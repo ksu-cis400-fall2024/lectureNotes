@@ -16,29 +16,49 @@ Exam 2: Wednesday, November 6
 
 Milestone 9.
 - Update UML to match current state of your application
-- Unit test Order updates from Milestone 6 (Number, PlacedAt, collection/property
-    changed stuff)
+
+- Unit test Order updates from Milestone 6:
+    - Number, PlacedAt 
+    - collection/property changed stuff
+
 - Unit test PropertyChanged implementation from Milestone 7 and 8
+
 - Integration testing for ViewModel
 
 
+//////////////////////////////////
+
 UML considerations:
 - denote the namespaces
+
 - fully qualify class (namespace.ClassName) if referring to a class
     from a different namespace
+
 - indicate that MainWindow extends Window 
+
 - indicate that EVERY user control extends UserControl 
+
 - include all named controls, public properties/methods/events, and
     event handlers (even if private) in UML
+
 - indicate the DataContext of EVERY control (unless it is inheriting
     from a parent control)
+
 - indicate whenever a control is placed on another control
 
+
+
+///
 
 --> recommendation: have sections on your UML:
     - one for inheriting Window/UserControl
     - one to show the DataContexts
     - one to show the composition of controls on other controls
+
+
+
+--> custom event args?
+
 
 
 //////////////////////////////////
@@ -54,6 +74,7 @@ Order:
     property values to change
 
 
+
 Menu items:
 - test that EVERY menu item implements INotifyPropertyChanged
 - for each menu item:
@@ -62,10 +83,17 @@ Menu items:
     --> test ALL combinations of (changingProperty, affectedProperty)
         to ensure PropertyChanged is invoked
 
+
+
+
 --> for EACH entree type: try changing its ingredients to be
     included/not included. Assert that such changes invoke
     PropertyChanged for that entree (which properties change?)
         Price, Calories, PreparationInformation
+
+
+
+
 
 --> for Combo: try changing entree/side/drink choice, assert that
     PropertyChanged is correctly invoked
