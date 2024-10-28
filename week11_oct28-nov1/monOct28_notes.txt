@@ -88,8 +88,10 @@ Menu items:
 
 --> for EACH entree type: try changing its ingredients to be
     included/not included. Assert that such changes invoke
-    PropertyChanged for that entree (which properties change?)
-        Price, Calories, PreparationInformation
+    PropertyChanged for that entrees
+
+        Which properties change?
+
 
 
 
