@@ -54,12 +54,29 @@ UML considerations:
 
 
 --> custom event args?
+    extends RoutedEventArgs
+    Menu selection control has an association with Custom event args
+
+    have menu control ---> custom event args
+    (use directed association)
 
 
---> PaymentViewModel?
+--> PaymentViewModel? - will want to move this to Data
+    DataContext for payment control
 
 
 --> UML changes in Data project?
+    IMenuItem implements INotifyPropertyChanged
+    Order implements INotifyPropertyChanged, INotifyCollectionChanged
+    IngredientItem
+    PaymentViewModel implements INotifyPropertyChanged
+    Order Number, PlacedAt
+    Combo/Entree
+
+    Make sure to add the PropertyChanged/CollectionChanged events where 
+        they are included
+
+
 
 
 //////////////////////////////////
@@ -73,6 +90,10 @@ Order:
 --> test that Number/PlacedAt don't change when you request them more than once
 --> test that PropertyChanged is correctly invoked when actions happen that cause
     property values to change
+
+
+    adding items, removing items, clearing: Total, Tax, Subtotal
+    tax rate: tax, total, tax rate
 
 
 
@@ -92,17 +113,19 @@ Menu items:
     PropertyChanged for that entrees
 
         Which properties change?
-
+            Calories, PreparationInformation, Price
 
 
 
 
 
 --> for Combo: try changing entree/side/drink choice, assert that
-    PropertyChanged is correctly invoked
+    PropertyChanged is correctly invoked for:
+        Price, Calories, PreparationInformation, EntreeChoice/...
 
     (it is OK if you do this with specific entrees/sides/drinks)
     (you don't need to check anything with further customizations)
+
 
 
 
@@ -115,16 +138,27 @@ Example: FountainDrink
 
 - implements INotifyPropertyChanged
 - what properties can change? 
+        flavor, size, ice
+
     
 
     --> What properties are affected as a result of that change?
+        flavor: calories, flavor, PreparationInformation
+        size: price, calories, PreparationInformation, size
+        ice: PreparationInformation, ice
 
 
-
-
-    public void Test(values for property, affectedProperty) {
-        create a new menu item
-        Assert.PropertyChanged(item, affectedProperty, () => {
-            item.changingProperty = value from paramater;
+    [Theory]
+    [InlineData(SodaType.Coke, "Calories")]
+    [InlineData(SodaType.CokeZero, "Flavor")]
+    [InlineData(SodaType.OrangeFanta, "PreparationInformation")]
+    [InlineData(another, "Calories")]
+    [InlineData(another, "Flavor")]
+    [InlineData(another, "PreparationInformation")]
+    ...etc. to get 8
+    public void Test(SodaType flavor, string affectedProperty) {
+        FountainDrink drink = new();
+        Assert.PropertyChanged(drink, affectedProperty, () => {
+            drink.Flavor = flavor;
         });
     }
