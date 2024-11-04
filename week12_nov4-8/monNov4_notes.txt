@@ -48,11 +48,3 @@ Mix of multiple choice and "open-ended"
 Also be familiar with attaching an event handler to the PropertyChanged event
 for a contained item (e.g: Order's Add attaches an event handler to the
 new menu item, and all Entrees attach an event handler to each IngredientItem)
-
-try {
-    try {
-
-    }
-    catch (..)
-}
-catch (..)
