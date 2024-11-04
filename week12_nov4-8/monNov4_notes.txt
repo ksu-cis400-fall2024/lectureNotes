@@ -27,10 +27,10 @@ Exam 2 topics:
 - DataContext
 - Data binding
 
-- INotifyPropertyChanged and INotifyCollectionChanged, including how and when to 
+****INotifyPropertyChanged and INotifyCollectionChanged, including how and when to 
     invoke PropertyChanged and how to listen to the PropertyChanged of another object
 
-- Events, including custom events, custom event arguments, invoking events, 
+***Events, including custom events, custom event arguments, invoking events, 
     attaching event handlers to events, and using events to send messages between 
     objects
 
@@ -44,3 +44,15 @@ Mix of multiple choice and "open-ended"
 
 
 --> work previous exam
+
+Also be familiar with attaching an event handler to the PropertyChanged event
+for a contained item (e.g: Order's Add attaches an event handler to the
+new menu item, and all Entrees attach an event handler to each IngredientItem)
+
+try {
+    try {
+
+    }
+    catch (..)
+}
+catch (..)
