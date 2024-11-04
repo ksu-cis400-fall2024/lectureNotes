@@ -1,13 +1,20 @@
-All tutorials and milestones since Exam 1 must be submitted 
-    by Friday, November 8 for any partial credit
-
-
 Exam 2: Wednesday, November 6 
 
 Paper-based, closed-notes, and closed-computers
 50 minutes in length
 
-Topics:
+
+
+All tutorials and milestones since Exam 1 must be submitted 
+    by Friday, November 8 for any partial credit
+
+    --> Friday is a work day
+    --> next week we will start on Razor pages
+
+
+/////////////////////////////////////
+
+Exam 2 topics:
 
 - Being able to draw a control by looking at XAML
 - Being able to define the XAML for a basic control
