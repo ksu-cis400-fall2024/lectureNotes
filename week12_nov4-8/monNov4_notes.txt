@@ -24,7 +24,8 @@ Topics:
     invoke PropertyChanged and how to listen to the PropertyChanged of another object
 
 - Events, including custom events, custom event arguments, invoking events, 
-    attaching event handlers to events, and using events to send messages between objects
+    attaching event handlers to events, and using events to send messages between 
+    objects
 
 - MVVM (the ideas)
 - Testing the PropertyChanged event
