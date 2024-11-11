@@ -1,4 +1,9 @@
+Hack K-State participation?
+
+////////////////
+
 Exam 2.
+
 High: 100/100
 Average: 81/100
 
@@ -56,19 +61,19 @@ Milestone 10: due Friday, November 15
         - Each type of drink in its default configuration
 
 - Example: Fountain Drink. What combinations?
-    flavor (??)
-    size (??)
+    flavor (5)
+    size (3)
 
-    ?*? = ?? combinations
+    5*3 = 15 combinations
 
 
 - Example: Combo. What combinations?
 
-    entree choices:
-    side choices:
-    drink choices
+    entree choices: 7
+    side choices: 4
+    drink choices: 3
 
-    ?*?*? = ?? combos
+    7*4*3 = 84 combos
 
 
 
@@ -94,7 +99,7 @@ user should be able to click to go to Entrees, Drinks, Sides, Combos
 
 ////////////////////////
 
-Menu class: FullMenu, Entree, Sides, Drinks, Combos
+Menu class: FullMenu, Entrees, Sides, Drinks, Combos
 
 
 (some List).AddRange(some IEnumerable);
