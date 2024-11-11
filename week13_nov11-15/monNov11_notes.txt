@@ -53,16 +53,22 @@ Milestone 10: due Friday, November 15
 
     Entrees: create instance of each type of sandwich/wrap/sub in 
         each possible bread/size combination. Don't need ingredient combinations.
+
+
     Sides: create all possible combinations EXCEPT side salad (just default for it)
+
+
     Drinks: create all possible combinations (EXCEPT Ice customization)
+
+
     Combos: create all possible all combinations with:
         - Each type of entree in its default configuration
         - Each type of side in its default configuration
         - Each type of drink in its default configuration
 
 - Example: Fountain Drink. What combinations?
-    flavor (5)
-    size (3)
+    flavor - 5
+    size - 3
 
     5*3 = 15 combinations
 
@@ -103,6 +109,9 @@ Menu class: FullMenu, Entrees, Sides, Drinks, Combos
 
 
 (some List).AddRange(some IEnumerable);
+
+Apple a = new() {Sliced = true};
+_sides.Add(a);
 
 
 When you add the ASP.NET web app project, be sure to right-click the 
