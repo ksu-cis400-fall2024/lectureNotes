@@ -3,7 +3,7 @@ Milestone 10: due Friday
 
 Recommended order of approach:
 - Add About page and edit Privacy page
-- Write the static Menu class
+- Write the static Menu class (SubHero.Data)
 - Write the index page to get the menu information to *appear*
 - Testing
 - UML
@@ -17,8 +17,8 @@ Testing: static Menu class
 For each type of menu item (Entrees, Sides, Drinks, Combos):
     1) Test that the count matches your expectations
         (recommend leaving the expected value as an expression)
-    2+5+5*5+1
 
+        5*3 + 2*3 + 2*3
 
     2) Test that the collection contains all expected menu items
 
@@ -38,7 +38,7 @@ Assert.Contains(Menu.Drinks, item => item is IcedTea tea && !tea.Sweet &&
 
 
 
-Would this work? not without overriding ==
+Would this work? not unless I override == (or similarly Equals)
 
 Assert.Contains(Menu.Drinks, item => item == new IcedTea(){...});
 
@@ -55,6 +55,7 @@ Loop through enumerations (example, SizeType):
 foreach(SizeType size in Enum.GetValues<SizeType>()) {
 
 }
+
 
 
 
@@ -83,6 +84,8 @@ UML:
     how to show static? underline
     any "has-a" relationships? 
         an aggregation of IMenuItem
+        an aggreation of IngredientItem
+
 
 
 
