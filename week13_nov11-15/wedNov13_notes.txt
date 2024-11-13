@@ -14,16 +14,17 @@ Recommended order of approach:
 
 Testing: static Menu class
 
-- For each type of menu item (Entrees, Sides, Drinks, Combos):
-    --> test that the count matches your expectations
+For each type of menu item (Entrees, Sides, Drinks, Combos):
+    1) Test that the count matches your expectations
         (recommend leaving the expected value as an expression)
 
 
 
-    --> test that the collection contains all expected menu
-        items
+    2) Test that the collection contains all expected menu items
 
 
+
+////////////////////////////////
 
 Assert.Contains(collection, item => (some bool expression about item));
 
@@ -32,6 +33,11 @@ Example: see if "Drinks" contains a small unsweetened iced tea
 
 
 
+
+
+Would this work?
+
+Assert.Contains(collection, item => item == new IcedTea(){...});
 
 
 ///////////////////////////////
@@ -51,10 +57,15 @@ Loop through enumerations (example, SizeType):
 Combos:
     create a List of entrees, List of sides, List of drinks
 
+
+
 Assert.Contains(Menu.Combos, item => 
         item is Combo c && c.SandwichChoice.GetType() == e.GetType() && ...)
 
+
 (You aren't required to check anything more specific)
+
+
 
 (You could also override Equals for Entree/Side/Drink and use that instead)
 
@@ -70,7 +81,7 @@ UML:
 
 
 - add each page (Index, Privacy, About, Error) and mark the new namespace
-    - look in each PageModel to see any properties/members
+    - look in each PageModel (code-behind) to see any properties/members
     - look for inheritance information
     - what does the Index page *have*?
 
@@ -90,16 +101,15 @@ UML:
 
 Styling the menu items.
 
-Suggestion: have divs for entrees, for sides, for drinks, for combos 
+Suggestion: have div around entrees, sides, drinks, combo sections
 
-have a div for each menu item
+have a div around each menu item
 
-.entrees, .sides, .drinks, .combos {
+
+css for entrees/sides/drinks/combos
     display: flex;
     flex-wrap: wrap;
-}
 
-.menu-item {
-    //this gives a length to the menu item
+
+css for menu item (gives length to item)
     flex-basis: 200px;
-}
