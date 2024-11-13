@@ -17,7 +17,7 @@ Testing: static Menu class
 For each type of menu item (Entrees, Sides, Drinks, Combos):
     1) Test that the count matches your expectations
         (recommend leaving the expected value as an expression)
-
+    2+5+5*5+1
 
 
     2) Test that the collection contains all expected menu items
@@ -31,13 +31,16 @@ Assert.Contains(collection, item => (some bool expression about item));
 
 Example: see if "Drinks" contains a small unsweetened iced tea
 
+Assert.Contains(Menu.Drinks, item => item is IcedTea tea && !tea.Sweet &&
+                            tea.Size == SizeType.Small);
 
 
 
 
-Would this work?
 
-Assert.Contains(collection, item => item == new IcedTea(){...});
+Would this work? not without overriding ==
+
+Assert.Contains(Menu.Drinks, item => item == new IcedTea(){...});
 
 
 ///////////////////////////////
@@ -49,6 +52,9 @@ Not required to test IngredientItem collection
 
 Loop through enumerations (example, SizeType): 
 
+foreach(SizeType size in Enum.GetValues<SizeType>()) {
+
+}
 
 
 
@@ -74,8 +80,9 @@ Assert.Contains(Menu.Combos, item =>
 UML:
 
 - add static Menu class (show it is in SubHero.Data)
-    how to show static? 
+    how to show static? underline
     any "has-a" relationships? 
+        an aggregation of IMenuItem
 
 
 
@@ -83,12 +90,12 @@ UML:
 - add each page (Index, Privacy, About, Error) and mark the new namespace
     - look in each PageModel (code-behind) to see any properties/members
     - look for inheritance information
-    - what does the Index page *have*?
 
 
 
 
 --> relationship between Menu and Index page?
+    directed association point towards Menu
 
 
 
