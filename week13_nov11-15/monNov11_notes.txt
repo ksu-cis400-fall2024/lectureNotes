@@ -115,7 +115,7 @@ _sides.Add(a);
 
 
 When you add the ASP.NET web app project, be sure to right-click the 
-    build your bowl solution and do Add->New project
+    sub hero solution and do Add->New project
 
 ////////////////////////
 
