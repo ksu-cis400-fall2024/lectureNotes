@@ -3,7 +3,7 @@ Tuesday: LINQ Tutorial (again, some extra after the video)
 
 Milestone 11: due Friday
 
-Next week: POST requests
+After fall break: POST requests
     one more milestone (#12)
 
 We do have a final exam.
@@ -90,18 +90,38 @@ You have a match of all the strings are contained in either:
 
 Example: "small tea"
 
+Small Iced Tea
+Small Iced Tea (unsweetened)
 
+
+Small Club Sub - no, doesn't match "tea"
+Combo - no, the combos we generated won't have small items
 
 
 //////////////////////////////////
 
 How to display filtered results?
 
+In your Menu class, add filtering methods:
+1) Filter by price
+2) Filter by calories
+3) Filter by keywords
+
+parameters: list/IEnumerable of menu items to search, search criteria
+return: list/IEnumerable of menu items that match the criteria
+
+initially, pass in the full menu (to the first filter)
+pass the result of the previous filter to the next filter
+    (and so on)
+
+remember that any of the search criteria might be null
 
 ///////////////////////////
 
 Wednesday: discuss LINQ queries, testing, UML updates
 
+price/calories: recommend using LINQ queries
 
+keyword: *can* do with a LINQ query, but recommend just a manual approach
 
 ///////////////
