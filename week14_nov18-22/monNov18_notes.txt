@@ -1,0 +1,107 @@
+Today: Web Data Tutorial (has some extra on your own after video)
+Tuesday: LINQ Tutorial (again, some extra after the video)
+
+Milestone 11: due Friday
+
+Next week: POST requests
+    one more milestone (#12)
+
+We do have a final exam.
+    1:30 section: Wednesday, December 11 11:50 am - 1:40 pm
+    2:30 section: Friday, December 13 4:10-6:00 pm (sorry...)
+
+///////////////////////////
+
+"Data binding" in Razor pages
+
+Use a form to transfer data from browser to PageModel
+
+Forms have different input elements, notably:
+    text
+    number
+    radio button 
+    check box 
+    submit (a button that submits the form)
+
+
+<form>
+    <input type="text" value="I have text"/>
+    ...
+    <input type="submit" value="Submit Form"/>
+</form>
+
+
+Clicking the submit button calls the OnGet method in the PageModel
+
+
+
+
+    also name, placeholder, min / max (for number type) attributes
+
+
+/////////////////////////////
+
+Data binding in Razor pages
+
+- bind an HTML form element to a property in the PageModel
+
+<input type="text" name = "MyString" value="@Model.MyString"/>
+
+
+
+In PageModel:
+
+[BindProperty(SupportsGet = true)]
+public string MyString { get; set; }
+
+
+//////////////////////////////
+
+Example: see initial form Example
+
+--> how to bind to a string property?
+
+
+--> what should we do in OnGet? When is OnGet first called?
+
+
+
+--> what happens if we try to add each element to a list in PageModel?
+    what happens to the list?
+
+
+//////////////////////////////
+
+Milestone 11:
+
+--> add form with filters by calories (low/high), price (low/high), keywords
+
+
+
+For keywords: split into separate strings
+
+You have a match of all the strings are contained in either:
+    - name
+    - included ingredients (for entrees and side salad)
+    - preparation information
+
+
+
+
+Example: "small tea"
+
+
+
+
+//////////////////////////////////
+
+How to display filtered results?
+
+
+///////////////////////////
+
+Wednesday: discuss LINQ queries, testing, UML updates
+
+
+
+///////////////
