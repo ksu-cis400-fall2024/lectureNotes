@@ -116,6 +116,8 @@ pass the result of the previous filter to the next filter
 
 remember that any of the search criteria might be null
 
+Feel free to add extra helper methods/classes/properties as needed
+
 ///////////////////////////
 
 Wednesday: discuss LINQ queries, testing, UML updates
