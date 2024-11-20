@@ -26,6 +26,10 @@ Final exam:
 
 ////////////////////////
 
+LINQ queries.
+
+
+
 //suppose items is an IEnumerable<SomeType>
 
 
@@ -100,8 +104,10 @@ Milestone 11 testing.
     test correct if both null -> shouldn't filter anything
     test correct if just one null 
     test correct if given both min/max: 
+        what kinds of min/max values?
         make sure each item in the result has a price in given range
         make sure each item in menu whose price is in that range is in the result
+        
 
 
 - cals filter (min/max cals): same idea
@@ -115,11 +121,9 @@ Milestone 11 testing.
         Option 1) Try searching the whole menu
         Option 2) Create your own smaller menu (recommended)
 
-            keywords to test: one word, multiple keywords,
-                "small tea xyz" - make sure no results
-                "small tea" - make sure no other small menu items
-                test with all uppercase
-                test with mixed case
+        keywords to test: one word, multiple keywords, mixed case
+            "small tea xyz"
+            "small tea"
 
 
 
