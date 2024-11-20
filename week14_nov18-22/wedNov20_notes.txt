@@ -51,13 +51,24 @@ minAge, maxAge, firstLetter
 Return collection of people whose name begins with that letter and age is in
 the specified range
 
-
+public IEnumerable<Person> Filter(IEnumerable<Person> list, uint minAge, uint maxAge,
+                                    char firstLetter) {
+    return list.Where(person => person.Age >= minAge && person.Age <= maxAge &&
+                    person.Name[0] == firstLetter);                                     
+}
 
 
 
 
 Query style:
 
+public IEnumerable<Person> Filter(IEnumerable<Person> list, uint minAge, uint maxAge,
+                                    char firstLetter) {
+    return from person in list
+        where person.Age >= minAge && person.Age <= maxAge &&
+                    person.Name[0] == firstLetter
+        select person;                              
+}
 
 
 
@@ -69,7 +80,9 @@ write method that takes an IEnumerable<Person>
 
 Return collection of people who are students
 
-
+public IEnumerable<Person> Filter(IEnumerable<Person> list) {
+    return list.Where(person => person is Student);
+}
 
 
 
@@ -77,13 +90,20 @@ Return collection of people who are students
     (at least a 3.5 GPA)
 
 
+public IEnumerable<Person> Filter(IEnumerable<Person> list) {
+    return list.Where(person => person is Student s && s.GPA >= 3.5);
+}
+
+
 ////////////////////
 
 Example: how to revise above method to put in alphabetical order by name?
 
+public IEnumerable<Person> Filter(IEnumerable<Person> list) {
+    return list.Where(person => person is Student s && s.GPA >= 3.5).OrderBy(person => person.Name);
+}
 
-
-
+OrderByDescending
 
 
 
@@ -105,6 +125,11 @@ Milestone 11 testing.
     test correct if just one null 
     test correct if given both min/max: 
         what kinds of min/max values?
+            try having the min be 0
+            try having the max be as big as it could be 
+            try having min/max be really close together
+            5-15
+
         make sure each item in the result has a price in given range
         make sure each item in menu whose price is in that range is in the result
         
@@ -120,11 +145,15 @@ Milestone 11 testing.
     test actual keywords
         Option 1) Try searching the whole menu
         Option 2) Create your own smaller menu (recommended)
+            maybe, some small drinks
+            some small entrees
+            some entrees that share ingredients
 
         keywords to test: one word, multiple keywords, mixed case
-            "small tea xyz"
-            "small tea"
-
+            "small tea xyz" - should not have any results
+            "small tea" - should return small iced tea
+            "small turkey" - should keep just the entrees that are small and
+                        have turkey
 
 
 ///////////////////
