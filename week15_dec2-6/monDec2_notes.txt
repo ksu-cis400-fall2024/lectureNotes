@@ -5,6 +5,9 @@ General announcements:
     winner gets gift card to a sandwich place (Goodcents? Jimmy Johns? Subway?)
 
 
+
+////////////////////////////
+
 Tutorial: POST requests and JSON (due today)
     - GET requests: to retrieve data
     - POST requests: to submit data
@@ -25,6 +28,11 @@ Milestone 12 (due Friday, December 6)
         - show closing web app, launching again - reviews should still be there,
             and should be able to add new reviews
 
+--> see milestone 12 demo
+
+
+
+/////////////////////////////////
 
 For reviews:
 - Create a data class for each review (string Text, DateTime PlacedAt)
@@ -37,8 +45,6 @@ For reviews:
     of a LINQ query that orders the ReviewDatabase reviews by PlacedAt
 
 
-
---> see milestone 12 demo
 
 
 ///////////////////
