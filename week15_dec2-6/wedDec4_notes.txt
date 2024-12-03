@@ -1,0 +1,183 @@
+General announcements:
+- NO late work accepted after Friday, December 6 (includes milestones and tutorials)
+- Milestone 12 must be checked off in class or office hours (not Canvas)
+- Website design competition - submit new release by Friday, December 6
+    winner gets sandwich (Goodcents?) gift card
+
+
+
+///////////////////
+
+Final exam.
+    1:30 section - Wednesday, December 11 11:50 am - 1:40 pm (usual lab room)
+    2:30 section - Friday, December 13 4:10-6:00 pm (usual lab room)
+
+Format.
+    Paper-based, closed notes, closed computers.
+    Multiple choice followed by open-ended.
+    Similar format as midterms
+
+--> be familiar with all vocabulary terms
+
+--> I highly recommend reviewing exams 1 and 2 and their practice exams
+
+
+
+/////////////////////////////////////
+
+For open-ended:
+- Implementing a class, including fields/properties/methods/constructors  
+
+- Writing and implementing an interface
+
+- Using inheritance and abstract classes
+    --> rules when extending a class? constructors?
+    --> rules when extending an abstract class?
+
+
+- Enforcing the bounds of a property
+
+- Creating and using objects
+
+- Drawing and interpreting UML diagrams
+    --> kinds of associations?
+
+- Determining if an object has a particular type and using casting operations
+
+    if (Object is SomeType t)
+
+
+
+- Writing Fact and Theory xUnit tests
+
+- Implementing and testing INotifyPropertyChanged
+
+- Events, including custom events, custom event arguments, invoking events, 
+    attaching event handlers to events, and using events to send messages 
+    between objects
+
+LINQ queries for filtering
+
+
+--> No questions on XAML, Razor Pages, CSS, HTML
+
+
+//////////////////////////////////
+
+
+General review:
+
+
+Encapsulation --> 
+
+Polymorphism --> 
+
+Inheritance --> example? why? 
+    different names for each class?
+    how to implement methods/properties differently?
+    how do constructors work?
+
+
+
+Interfaces - why?
+
+    impose requirements on classes that implement it
+
+
+Abstract classes --> how different from interfaces?
+    --> extending an abstract class
+
+
+Events
+Data binding
+MVVM
+
+Field
+Method
+Property --> difference from field? types of accessors? 
+
+public
+protected --> where visible? 
+private
+static --> how do we use?
+
+Implicit casting --> when?
+    Examples:
+
+
+Explicit casting --> different ways. When is it needed?
+
+virtual --> places used? behavior?
+
+abstract --> places used? behavior?
+
+override --> when can we say this?
+
+as - what kind of thing is this? 
+
+is - what kind of thing is this? 
+
+
+
+enum --> know how to declare, use
+
+
+
+public interface IInterface {
+    void Method1(params);
+}
+
+public abstract class AbstractClass {
+    public void FinishedMethod() {
+        Console.WriteLine("is done");
+    }
+
+    public abstract void AbstractMethod(params);
+}
+
+public class ChildClass : AbstractClass, IInterface {
+    public override void AbstractMethod(params) {
+        Console.WriteLine("code");
+    }
+
+    public void Method1(params) {
+        Console.WriteLine("done");
+    }
+}
+
+<-- is the word "override" required for AbstractMethod?
+
+
+ChildClass c = new ChildClass();
+c.FinishedMethod(); //can we do this?
+
+//////////////////
+
+Look at UML of student information.
+
+--> assume _students is already initialized
+
+--> complete StudentRegistry members using LINQ
+
+--> Honor roll = 3.5 and up
+
+--> search by name: see if search string in first OR last name
+
+
+--> how to write method that gets all freshmen on the honor roll?
+
+/////////////////
+
+--> if more time, see pie UML
+
+
+Add the appropriate UML associations to the diagram. 
+We want to indicate that PaleozoicPie implements 
+INotifyPropertyChanged and IOrderItem.
+
+
+Write the PaleozoicPie class definition.
+- Description should be the filling followed by “Paleozoic Pie.” 
+- A Paleozoic Pie is $3.00 plus an additional $1 when served with ice cream (a la mode)
+- Instructions should include “Hot” if the pie is hot and 
+    “A La Mode” if the pie is served a la mode.
