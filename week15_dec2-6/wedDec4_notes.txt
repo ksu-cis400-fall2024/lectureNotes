@@ -1,5 +1,8 @@
 General announcements:
 - NO late work accepted after Friday, December 6 (includes milestones and tutorials)
+    --> This includes correcting any submissions where your release contained
+        the wrong code
+
 - Milestone 12 must be checked off in class or office hours (not Canvas)
 - Website design competition - submit new release by Friday, December 6
     winner gets sandwich (Goodcents?) gift card
@@ -27,36 +30,18 @@ Format.
 
 For open-ended:
 - Implementing a class, including fields/properties/methods/constructors  
-
-- Writing and implementing an interface
-
-- Using inheritance and abstract classes
-    --> rules when extending a class? constructors?
-    --> rules when extending an abstract class?
-
-
-- Enforcing the bounds of a property
-
 - Creating and using objects
-
+- Writing and implementing an interface
+- Using inheritance and abstract classes
+- Enforcing the bounds of a property
 - Drawing and interpreting UML diagrams
-    --> kinds of associations?
-
-- Determining if an object has a particular type and using casting operations
-
-    if (Object is SomeType t)
-
-
-
-- Writing Fact and Theory xUnit tests
-
-- Implementing and testing INotifyPropertyChanged
-
+- Implementing INotifyPropertyChanged
 - Events, including custom events, custom event arguments, invoking events, 
     attaching event handlers to events, and using events to send messages 
     between objects
-
-LINQ queries for filtering
+- Writing Fact and Theory xUnit tests
+    (Equals, True, False, Contains, PropertyChanged)    
+- LINQ queries for filtering
 
 
 --> No questions on XAML, Razor Pages, CSS, HTML
@@ -64,18 +49,47 @@ LINQ queries for filtering
 
 //////////////////////////////////
 
-
 General review:
 
 
 Encapsulation --> 
 
+
+Defining a class -->
+    when do we need a constructor?
+    when do we need a static constructor?
+
+
 Polymorphism --> 
+
 
 Inheritance --> example? why? 
     different names for each class?
     how to implement methods/properties differently?
     how do constructors work?
+    rules when extending a class?
+
+
+    public class Animal {
+        private string _name;
+
+        public Animal(string n) {
+            _name = n;
+        }
+
+        public void Talk {
+            Console.WriteLine("words");
+        }
+    }
+
+    public class Dog: Animal {
+        
+    }
+
+    public class Collie: Dog {
+
+    }
+
 
 
 
@@ -85,7 +99,8 @@ Interfaces - why?
 
 
 Abstract classes --> how different from interfaces?
-    --> extending an abstract class
+    rules when extending an abstract class?
+    what does an abstract class need to do when implementing an interface?
 
 
 Events
@@ -121,7 +136,7 @@ is - what kind of thing is this?
 
 enum --> know how to declare, use
 
-
+/////////////////////////
 
 public interface IInterface {
     void Method1(params);
@@ -168,12 +183,11 @@ Look at UML of student information.
 
 /////////////////
 
---> if more time, see pie UML
+--> see pie UML
 
 
 Add the appropriate UML associations to the diagram. 
-We want to indicate that PaleozoicPie implements 
-INotifyPropertyChanged and IOrderItem.
+We want to indicate that PaleozoicPie implements INotifyPropertyChanged and IOrderItem.
 
 
 Write the PaleozoicPie class definition.
