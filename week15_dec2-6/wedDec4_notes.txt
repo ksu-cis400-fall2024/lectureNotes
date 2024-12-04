@@ -1,13 +1,14 @@
 General announcements:
 - NO late work accepted after Friday, December 6 (includes milestones and tutorials)
-    --> This includes correcting any submissions where your release contained
-        the wrong code
+    --> This includes correcting any Milestone 10/11 submissions where your 
+        release contained the wrong branch
 
 - Milestone 12 must be checked off in class or office hours (not Canvas)
 - Website design competition - submit new release by Friday, December 6
     winner gets sandwich (Goodcents?) gift card
 
 
+Hack K-State participants/volunteers
 
 ///////////////////
 
@@ -31,10 +32,15 @@ Format.
 For open-ended:
 - Implementing a class, including fields/properties/methods/constructors  
 - Creating and using objects
+    ClassName obj = new(...) {PropertyName = value};
+
 - Writing and implementing an interface
 - Using inheritance and abstract classes
 - Enforcing the bounds of a property
+    (have a private backing field)
+
 - Drawing and interpreting UML diagrams
+
 - Implementing INotifyPropertyChanged
 - Events, including custom events, custom event arguments, invoking events, 
     attaching event handlers to events, and using events to send messages 
@@ -42,6 +48,7 @@ For open-ended:
 - Writing Fact and Theory xUnit tests
     (Equals, True, False, Contains, PropertyChanged)    
 - LINQ queries for filtering
+    Where, OrderBy, OrderByDescending
 
 
 --> No questions on XAML, Razor Pages, CSS, HTML
@@ -53,19 +60,48 @@ General review:
 
 
 Encapsulation --> 
+    related information you wanted to store, actions - separate into a class
 
 
 Defining a class -->
     when do we need a constructor?
+        if we want to force that certain properties/fields get initialized
+        if you have more involved code that you want to be sure to requirements
+        we MUST include a constructor if we are writing a child class that
+            extends a parent with a non-default constructor
+
     when do we need a static constructor?
+        whenever that class is first used, static constructor runs automatically
+        when we have things we want to create initially, want to only do once
+
+        we can put a static constructor in a static OR a regular class
+            can only access static members (fields or properties)
 
 
 Polymorphism --> 
+    many forms
+    a particular object can be treated as many different types
+
+    FountainDrink object
+    object, Drink, IMenuItem, FountainDrink, INotifyPropertyChanged
+
 
 
 Inheritance --> example? why? 
+    prevent code duplication
+    Entree - ClubSub, CaliforniaClubWrap
+    same: Calories, PrepInfo.
+    related: Price
+
     different names for each class?
+        parent/base/super
+        child/sub/derived
+
     how to implement methods/properties differently?
+        put the word override in the child
+        parent class must have virtual or abstract
+
+
     how do constructors work?
     rules when extending a class?
 
@@ -77,39 +113,72 @@ Inheritance --> example? why?
             _name = n;
         }
 
-        public void Talk {
+        public virtual void Talk() {
             Console.WriteLine("words");
         }
     }
 
     public class Dog: Animal {
-        
+        public Dog() : base("Fido") {
+
+        }
+
+        public override void Talk() {
+            Console.WriteLine("woof");
+        }
     }
 
     public class Collie: Dog {
-
+        
     }
 
-
+Animal d = new Dog();
+d.Talk(); //woof
 
 
 Interfaces - why?
 
     impose requirements on classes that implement it
 
+    if we implement an interface, must include:
+    signatures of everything in the interface
+
+    don't have to provide code for each item 
+        - but if we don't, must mark that property/method as abstract
+        - and the class itself also must be abstract
+
 
 Abstract classes --> how different from interfaces?
+    can't instantiate either of them
+    abstract classes can have some members that are fully implemented,
+        some that are abstract
+
     rules when extending an abstract class?
+
+        public abstract class Example {
+            public abstract void Stuff();
+        }
+
+        public class Child : Example {
+            //either must override Stuff or must be abstract
+        }
+
     what does an abstract class need to do when implementing an interface?
 
 
+
 Events
-Data binding
+Data binding - synchronization between front end and back end
+
 MVVM
+    View has access to ViewModel
+    ViewModel has access to Model
 
 Field
 Method
 Property --> difference from field? types of accessors? 
+    do more involved calculation, enforce bounds
+    easy to override property in child if I want it to work differently 
 
 public
 protected --> where visible? 
@@ -118,9 +187,16 @@ static --> how do we use?
 
 Implicit casting --> when?
     Examples:
+    all Dogs are Animals
+
+    Animal a = new Dog();
+
+    Dog d = a; //NO! not all animals are dogs
 
 
 Explicit casting --> different ways. When is it needed?
+    Dog d = (Dog)a; 
+    Dog d = a as Dog;
 
 virtual --> places used? behavior?
 
@@ -131,6 +207,8 @@ override --> when can we say this?
 as - what kind of thing is this? 
 
 is - what kind of thing is this? 
+    checks if it is a particular type
+    type check
 
 
 
@@ -142,20 +220,22 @@ public interface IInterface {
     void Method1(params);
 }
 
-public abstract class AbstractClass {
+public abstract class AbstractClass : IInterface {
     public void FinishedMethod() {
         Console.WriteLine("is done");
     }
 
     public abstract void AbstractMethod(params);
+
+    public abstract void Method1();
 }
 
-public class ChildClass : AbstractClass, IInterface {
+public class ChildClass : AbstractClass {
     public override void AbstractMethod(params) {
         Console.WriteLine("code");
     }
 
-    public void Method1(params) {
+    public override void Method1(params) {
         Console.WriteLine("done");
     }
 }
