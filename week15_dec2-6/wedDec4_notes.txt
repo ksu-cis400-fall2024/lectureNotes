@@ -1,14 +1,13 @@
 General announcements:
 - NO late work accepted after Friday, December 6 (includes milestones and tutorials)
-    --> This includes correcting any Milestone 10/11 submissions where your 
-        release contained the wrong branch
+    --> This includes correcting any Milestone 10/11 submissions where 
+        your release contained the wrong code
 
 - Milestone 12 must be checked off in class or office hours (not Canvas)
 - Website design competition - submit new release by Friday, December 6
     winner gets sandwich (Goodcents?) gift card
 
 
-Hack K-State participants/volunteers
 
 ///////////////////
 
@@ -32,16 +31,14 @@ Format.
 For open-ended:
 - Implementing a class, including fields/properties/methods/constructors  
 - Creating and using objects
-    ClassName obj = new(...) {PropertyName = value};
+    ClassName obj = new ClassName() {PropertyName = value};
+
 
 - Writing and implementing an interface
 - Using inheritance and abstract classes
-- Enforcing the bounds of a property
-    (have a private backing field)
-
+- Enforcing the bounds of a property - would need private backing field
 - Drawing and interpreting UML diagrams
-
-- Implementing INotifyPropertyChanged
+- Implementing INotifyPropertyChanged - declaring the event, invoking as needed
 - Events, including custom events, custom event arguments, invoking events, 
     attaching event handlers to events, and using events to send messages 
     between objects
@@ -60,47 +57,60 @@ General review:
 
 
 Encapsulation --> 
-    related information you wanted to store, actions - separate into a class
+    defining a class with related information and actions
 
 
 Defining a class -->
     when do we need a constructor?
-        if we want to force that certain properties/fields get initialized
-        if you have more involved code that you want to be sure to requirements
-        we MUST include a constructor if we are writing a child class that
-            extends a parent with a non-default constructor
+
+    constructor?  must include if writing child class and the parent   
+        constructor takes parameters
+
+        include one if you want to require information when creating an object
+
+        put more involved initialization code there
+
+
+    public class Parent{
+        public Parent(int something) {...}
+    }
+
+    public class Child {
+        public Child() : base() {}
+    }
 
     when do we need a static constructor?
-        whenever that class is first used, static constructor runs automatically
-        when we have things we want to create initially, want to only do once
+        gets called when we first use that class
 
-        we can put a static constructor in a static OR a regular class
-            can only access static members (fields or properties)
+        put initialization code that is more involved that you want to happen
+            before anything else
+
+        static constructor in non-static class? yes
+            can only access static members
+            can initialize everything that is static before objects are created
 
 
 Polymorphism --> 
     many forms
-    a particular object can be treated as many different types
-
-    FountainDrink object
-    object, Drink, IMenuItem, FountainDrink, INotifyPropertyChanged
+    FountainDrink - IMenuItem, Drink, FountainDrink, object, INotifyPropertyChanged
 
 
 
-Inheritance --> example? why? 
-    prevent code duplication
-    Entree - ClubSub, CaliforniaClubWrap
-    same: Calories, PrepInfo.
-    related: Price
+Inheritance --> example? 
+        Entree class
+        ClubSub, CaliforniaClubWrap, ... extended Entree
+        eliminate code duplication - put common code in parent
+        might list a feature (like Price) that they should all have, but
+            then implement in a different way
 
+    why? 
     different names for each class?
-        parent/base/super
-        child/sub/derived
+        parent/super/base
+        child/sub/dierived
 
     how to implement methods/properties differently?
-        put the word override in the child
-        parent class must have virtual or abstract
-
+        child class uses the word override
+        parent class uses the word virtual
 
     how do constructors work?
     rules when extending a class?
@@ -113,72 +123,64 @@ Inheritance --> example? why?
             _name = n;
         }
 
-        public virtual void Talk() {
+        public void Talk {
             Console.WriteLine("words");
         }
     }
 
     public class Dog: Animal {
-        public Dog() : base("Fido") {
-
-        }
-
-        public override void Talk() {
-            Console.WriteLine("woof");
-        }
+        public Dog() : base("Fido") {}
     }
 
     public class Collie: Dog {
-        
+
     }
 
-Animal d = new Dog();
-d.Talk(); //woof
+Animal a = new Dog(); //all Dogs are Animals
+Dog d = a; //NO! a has type Animal, Animals aren't necessary Dogs
+
+would need to cast
+
+
 
 
 Interfaces - why?
 
     impose requirements on classes that implement it
 
-    if we implement an interface, must include:
-    signatures of everything in the interface
 
-    don't have to provide code for each item 
-        - but if we don't, must mark that property/method as abstract
-        - and the class itself also must be abstract
+    if I am implementing the interface:
+        must include all methods/properties from interface
+        don't have to provide implementation - could leave abstract
+            if any are abstract, then the class itself must be labeled abstract
 
 
 Abstract classes --> how different from interfaces?
-    can't instantiate either of them
-    abstract classes can have some members that are fully implemented,
-        some that are abstract
+    some things might be abstract, some things might be fully implemented
 
     rules when extending an abstract class?
 
-        public abstract class Example {
-            public abstract void Stuff();
-        }
+    public abstract class Example {
+        public abstract void DoStuff();
+    }
 
-        public class Child : Example {
-            //either must override Stuff or must be abstract
-        }
+    public class Child : Example {
+       //must either override DoStuff
+       //or mark Child as abstract 
+    }
 
     what does an abstract class need to do when implementing an interface?
 
 
-
 Events
-Data binding - synchronization between front end and back end
-
+Data binding
 MVVM
-    View has access to ViewModel
-    ViewModel has access to Model
 
 Field
 Method
 Property --> difference from field? types of accessors? 
-    do more involved calculation, enforce bounds
-    easy to override property in child if I want it to work differently 
+    bounds, calculation - use a property
+    do something different in child vs parent
 
 public
 protected --> where visible? 
@@ -187,16 +189,15 @@ static --> how do we use?
 
 Implicit casting --> when?
     Examples:
-    all Dogs are Animals
-
-    Animal a = new Dog();
-
-    Dog d = a; //NO! not all animals are dogs
-
+        Animal a = new Dog(); //a Dog already is an Animal, don't need to do anything
 
 Explicit casting --> different ways. When is it needed?
-    Dog d = (Dog)a; 
+    Animal a = new Dog();
+
+    Dog d = (Dog) a; //need to force since all Animals aren't Dogs
+
     Dog d = a as Dog;
+
 
 virtual --> places used? behavior?
 
@@ -207,9 +208,10 @@ override --> when can we say this?
 as - what kind of thing is this? 
 
 is - what kind of thing is this? 
-    checks if it is a particular type
-    type check
+    see if an object is a particular type
+    type checking
 
+    if (a is Dog d) <-- checks and casts
 
 
 enum --> know how to declare, use
@@ -220,31 +222,41 @@ public interface IInterface {
     void Method1(params);
 }
 
-public abstract class AbstractClass : IInterface {
+public abstract class AbstractClass {
     public void FinishedMethod() {
         Console.WriteLine("is done");
     }
 
-    public abstract void AbstractMethod(params);
+    public virtual void Method2() {
+        Console.WriteLine("parent");
+    }
 
-    public abstract void Method1();
+    public abstract void AbstractMethod(params);
 }
 
-public class ChildClass : AbstractClass {
+public class ChildClass : AbstractClass, IInterface {
     public override void AbstractMethod(params) {
         Console.WriteLine("code");
     }
 
-    public override void Method1(params) {
+    public override void Method2() {
+        Console.WriteLine("child");
+    }
+
+    public void Method1(params) {
         Console.WriteLine("done");
     }
 }
+
+AbstractClass c = new ChildClass();
+c.Method2(); // child
+
 
 <-- is the word "override" required for AbstractMethod?
 
 
 ChildClass c = new ChildClass();
-c.FinishedMethod(); //can we do this?
+c.FinishedMethod(); //can we do this? yes! prints is done
 
 //////////////////
 
@@ -255,6 +267,9 @@ Look at UML of student information.
 --> complete StudentRegistry members using LINQ
 
 --> Honor roll = 3.5 and up
+
+public IEnumerable<Student> HonorRoll => _students.Where(s => s.GPA >= 3.5);
+
 
 --> search by name: see if search string in first OR last name
 
